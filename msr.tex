@@ -1,0 +1,99 @@
+\pdfpagewidth=8.5in 
+\pdfpageheight=11in
+
+
+\documentclass{sig-alternate}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{threeparttable}
+\usepackage{pdflscape}
+\usepackage{array}
+\usepackage{color}
+
+\usepackage{flushend}
+
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+\begin{document}
+
+\conferenceinfo{MSR}{'15, May 16 – 17, 2015, Florence, Italy}
+\CopyrightYear{2015}
+\crdata{978-1-4503-2863-0/14/05}
+
+\title{The Bug Catalog of the Maven Ecosystem}
+
+\numberofauthors{2}
+
+\author{
+\alignauthor Vassilios Karakoidas\\
+       \affaddr{Athens University of Economics and Business}\\
+       \affaddr{Department of Management Science and Technology}\\
+       \email{bkarak@aueb.gr}
+\alignauthor Georgios Gousios\\
+       \affaddr{--}\\
+       \affaddr{--}\\
+       \email{aa@bb.com}       
+}
+
+\maketitle
+\begin{abstract}
+
+\end{abstract}
+
+\category{D.2.4}{Software Engineering}{Software/Program Verification}[Statistical methods]
+\category{D.2.7}{Software Engineering}{Distribution, Maintenance, and Enhancement}[Version control]
+
+\terms{Static Analysis, Software Ecosystems.}
+
+\keywords{Maven Repository, JDepend, Software Bugs.}
+
+
+\section{Introduction}
+\label{sec:intro}
+ 
+
+\section{Dataset Contents}
+\label{sec:data}
+
+
+\section{Harnessing Our Dataset}
+\label{sec:exploit}
+
+
+\section{Limitations}
+\label{sec:limit}
+
+
+\section{Related Work}
+\label{sec:rel}
+
+The Maven ecosystem has been previously analyzed by
+Raemaekers et al.~\cite{RDV13}
+to produce the {\it Maven dependency dataset}.
+Apart from basic information like individual methods, classes,
+packages and lines of code for every {\sc jar}, this dataset
+also includes a database with all the
+connections between the aforementioned elements.
+Our work differs from this research because it
+reports all bugs coming from the output of a
+static analysis tool, for each {\sc jar}
+contained in the Maven repository.
+
+\cite{MKLGS14}
+
+\section{Conclusions}
+\label{sec:conc}
+
+
+\bibliographystyle{abbrv}
+\bibliography{msr}  
+
+\end{document}
