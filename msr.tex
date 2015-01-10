@@ -28,19 +28,21 @@
 \CopyrightYear{2015}
 \crdata{978-1-4503-2863-0/14/05}
 
-\title{The Bug Catalog of the Maven Ecosystem}
+\title{The Three Corridors}
 
-\numberofauthors{2}
+\numberofauthors{5}
+
+\def\aueb{\textsuperscript{*}}
+\def\tud{\textsuperscript{\dag}}
 
 \author{
-\alignauthor Vassilios Karakoidas\\
-       \affaddr{Athens University of Economics and Business}\\
-       \affaddr{Department of Management Science and Technology}\\
-       \email{bkarak@aueb.gr}
-\alignauthor Georgios Gousios\\
-       \affaddr{--}\\
-       \affaddr{--}\\
-       \email{aa@bb.com}       
+  Vassilios Karakoidas\aueb \and Dimitris Mitropoulos\aueb \and Panos Louridas\aueb \and Georgios Gousios\tud \and Diomidis Spinellis\aueb \\
+  \begin{tabular}{ccc}
+  \affaddr{\aueb Department of Management Science and Technology} & & \affaddr{\tud Software Engineering Research Group}\\
+    \affaddr{\aueb Athens University of Economics and Business} & & \affaddr{\tud Delft University of Technology}\\
+   \affaddr{Athens, Greece} & & \affaddr{Delft, the Netherlands}\\
+   \email{\{bkarak,dimitro,louridas,dds\}@aueb.gr}& & \email{g.gousios@tudelft.nl} \\
+  \end{tabular}
 }
 
 \maketitle
@@ -63,6 +65,72 @@
 \section{Dataset Contents}
 \label{sec:data}
 
+\begin{table}
+\centering
+\caption{The selected Maven projects' size metrics}
+\label{tbl:oss-size-metrics}
+\begin{tabular}{l r}
+ \hline
+\textbf{Metric} & \textbf{Value}\\ 
+\hline
+Project Count & 12,959\\
+File Count & 604,821\\
+Module Count & 72,302\\
+Lines of Code & 110,156,703\\
+Source Lines of Code & 61,246,807\\
+Comment Lines of Code & 36,696,217\\
+Number of Classes & 499,588\\
+Number of Interfaces & 89,145\\
+Number of Enumerations & 12,732\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Selected Metrics}
+\label{tbl:selected-metrics}
+\begin{tabular}{l l}
+ \hline
+\multicolumn{2}{l}{\textit{\textbf{Class \& Method Design}}}\\
+\hline
+Depth Of Inheritance Tree & \textit{ckjm}\\
+Coupling Between Objects & \textit{ckjm}\\
+Weighted Methods Per Class & \textit{ckjm}\\
+Response For Class & \textit{ckjm}\\
+Lack Of Cohesion In Methods & \textit{ckjm}\\
+Number Of Children & \textit{ckjm}\\
+Attribute Hiding Factor & \textit{clmt}\\
+Coupling Between Methods & \textit{ckjm}\\ 
+Average Method Complexity & \textit{ckjm}\\
+Cohesion Among Methods of Class & \textit{ckjm}\\
+Data Access Metric & \textit{ckjm}\\ 
+Inheritance Coupling & \textit{ckjm}\\
+Lack Of Cohesion In Methods3 & \textit{ckjm}\\ 
+McCabe Cyclomatic Complexity & \textit{ckjm}\\
+Measure Of Aggregation & \textit{ckjm}\\
+Measure Of Functional Abstraction & \textit{ckjm}\\
+Method Hiding Factor & \textit{clmt}\\
+\hline
+\multicolumn{2}{l}{\textit{\textbf{Package Design}}}\\
+\hline
+Afferent Couplings & \textit{jdep}\\
+Efferent Couplings & \textit{jdep}\\
+Instability & \textit{jdep}\\
+Abstractness & \textit{jdep}\\
+Distance Main Sequence & \textit{jdep}\\
+\hline
+\multicolumn{2}{l}{\textit{\textbf{Program Size Metrics}}}\\
+\hline
+Comments Lines Of Code & \textit{clmt}\\
+Lines Of Code & \textit{clmt}\\
+Native Methods Per Code Unit & \textit{clmt}\\
+Native Methods Per Project & \textit{clmt}\\
+Source Lines Of Code & \textit{clmt}\\ 
+Function Oriented Code & \textit{clmt}\\
+\hline
+\end{tabular}
+\end{table}
 
 \section{Harnessing Our Dataset}
 \label{sec:exploit}
@@ -71,6 +139,38 @@
 \section{Limitations}
 \label{sec:limit}
 
+
+\section{On the Use of Domain Specific Languages}
+\label{sec:dsl}
+
+The Java Platform exists more than a decade and provides a development environment for several application areas, such as web, grid computing, and traditional client-server applications. The official development environment of the Java platform is released by Oracle and is widely-known as the Java Standard Edition SDK. The process of development and innovation in the Java ecosystem is built around a community, that writes proposals of features, known as {\sc jsr}s (Java Specification Requests), which are supported by prototype implementations.
+
+In the literature, it is referred that {\sc dsl}s are used to reduce software development cost, by introducing domain efficiency \cite{MHS05}. This thesis focuses on practical research aspects as well as with the theoretical ones; thus the first problem that needs to be examined, is to measure the adoption of {\sc dsl}s in software projects. In addition, the average number of {\sc dsl}s usually used in a software project needs to be investigated.
+
+The methodology was the following; A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used. If a package is detected in the source code, then the project will be tagged that it uses one (1) {\sc dsl}. Consequently, if a project has {\sc dsl} count four (4), then it means that four (4) different application libraries were detected during the source code scan. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that all these libraries are included as part of the Java {\sc sdk}.
+
+\begin{table}
+\centering
+\caption{List of selected DSL application libraries}
+\label{tbl:dsl-list}
+\begin{tabular}{l l}
+ \hline
+\textbf{DSL} & \textbf{Java Package}\\
+\hline
+Regular Expressions & \verb|java.util.regex|\\
+XML & \verb|javax.xml|, \verb|org.w3c| and \verb|org.xml|\\
+SQL & \verb|java.sql| and \verb|javax.sql|\\
+XPath & \verb|java.xml.xpath|\\
+XSLT & \verb|javax.xml.transform|\\
+RTF & \verb|javax.swing.text.rtf|\\
+HTML & \verb|javax.swing.text.html|\\
+\hline
+\end{tabular}
+\end{table}
+
+The initial goal of this experiment was simply to provide quantifiable results that are indicative regarding the usage of each {\sc dsl}, thus only files containing Java code were taken into account. Build files or other resources that may contain {\sc dsl}s were not included.
+
+One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees.
 
 \section{Related Work}
 \label{sec:rel}
