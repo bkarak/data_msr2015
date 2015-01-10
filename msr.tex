@@ -172,6 +172,46 @@ The initial goal of this experiment was simply to provide quantifiable results t
 
 One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees.
 
+\begin{figure}
+\centering
+\includegraphics[scale=0.65]{dsl-usage}
+\caption{DSL language usage in Java projects}
+\label{fig:dsl-usage}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{Popular DSL Usage Combinations}
+\label{tbl:dsl-top-usage}
+\begin{tabular}{l r}
+ \hline
+\textbf{DSLs} & \textbf{Count}\\
+\hline
+XML & 1,561\\
+Regex & 909\\
+SQL & 493\\
+XML, XSLT & 475\\
+Regex, XML, XSLT & 158\\
+Regex, XML & 303\\
+SQL, XML & 162\\
+Regex, SQL & 116\\
+Regex, SQL, XML, XSLT & 80\\
+Regex, SQL, XML & 71\\
+SQL, XML, XSLT & 54\\
+XML, XPath & 50\\
+XML, XPath, XSLT & 39\\
+Regex, XML, XPath, XSLT & 38\\
+HTML & 23\\
+Regex, XML, XPath & 20\\
+Regex, SQL, XML, XPath, XSLT & 18\\
+SQL, XML, XPath, XSLT & 11\\
+HTML, Regex, XML & 10\\
+HTML, XML & 10\\
+\hline
+\end{tabular}
+\end{table}
+
+
 \section{Related Work}
 \label{sec:rel}
 
