@@ -55,7 +55,7 @@
 
 \terms{Static Analysis, Software Ecosystems.}
 
-\keywords{Maven Repository, JDepend, Software Bugs.}
+\keywords{Maven Repository, JDepend, Software Metrics, Chidamber and Kemerer.}
 
 
 \section{Introduction}
@@ -67,6 +67,12 @@ Today a software engineer or developer has a very large list of metrics at his d
 
 \section{Dataset Contents}
 \label{sec:data}
+
+ Maven is a build automation tool used primarily for Java projects, and it is hosted by the Apache Software Foundation\footnote{\url{http://www.apache.org/}}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as basis. These languages include Java, Clojure, Groovy, and Scala.
+
+Initially, a snapshot (January 2012) of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project. 
+
+All versions were filtered out and only the latest was kept. For each version in the Maven repository, each binary {\sc jar} file is accompanied by another {\sc jar}, which contains the source code. Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 12,959 projects, with more than 110 million lines of code.
 
 \begin{itemize}
   \item \textbf{CKJM-ext} \textit{(ckjm)}\footnote{\url{http://www.spinellis.gr/sw/ckjm/}} is an open source tool that was developed by Diomidis Spinellis and then extended by Marian Jureczko. It calculates many software complexity metrics, including the \textit{Chidamber and Kemmerer} set of metrics \cite{CHKE94}.
