@@ -120,33 +120,44 @@ Attribute Hiding Factor & \textit{clmt}\\
 Coupling Between Methods & \textit{ckjm}\\
 Average Method Complexity & \textit{ckjm}\\
 Cohesion Among Methods of Class & \textit{ckjm}\\
-Data Access Metric & \textit{ckjm}\\
+Data Access Metric & \textit{ckjm, clmt}\\
 Inheritance Coupling & \textit{ckjm}\\
 Lack Of Cohesion In Methods3 & \textit{ckjm}\\
-McCabe Cyclomatic Complexity & \textit{ckjm}\\
+McCabe Cyclomatic Complexity & \textit{ckjm, clmt}\\
 Measure Of Aggregation & \textit{ckjm}\\
 Measure Of Functional Abstraction & \textit{ckjm}\\
 Method Hiding Factor & \textit{clmt}\\
 \hline
 \multicolumn{2}{l}{\textit{\textbf{Package Design}}}\\
 \hline
-Afferent Couplings & \textit{jdep}\\
-Efferent Couplings & \textit{jdep}\\
+Afferent Couplings & \textit{jdep, ckjm}\\
+Efferent Couplings & \textit{jdep, ckjm}\\
 Instability & \textit{jdep}\\
 Abstractness & \textit{jdep}\\
 Distance Main Sequence & \textit{jdep}\\
 \hline
 \multicolumn{2}{l}{\textit{\textbf{Program Size Metrics}}}\\
 \hline
+Module Count & \textit{clmt}\\
 Comments Lines Of Code & \textit{clmt}\\
-Lines Of Code & \textit{clmt}\\
+Lines Of Code & \textit{clmt, ckjm}\\
 Native Methods Per Code Unit & \textit{clmt}\\
 Native Methods Per Project & \textit{clmt}\\
 Source Lines Of Code & \textit{clmt}\\
 Function Oriented Code & \textit{clmt}\\
+DSL Usage Count & \textit{clmt}\\
+File Count & \textit{clmt}\\
 \hline
 \end{tabular}
 \end{table}
+
+\section{Database Structure}
+\label{sec:db}
+
+\begin{figure*}
+\centering
+\includegraphics[scale=0.7]{database-schema}
+\end{figure*}
 
 \section{On the Use of Domain Specific Languages}
 \label{sec:dsl}
