@@ -1,8 +1,8 @@
-\pdfpagewidth=8.5in 
+\pdfpagewidth=8.5in
 \pdfpageheight=11in
 
 \documentclass{sig-alternate}
-\usepackage[utf8]{inputenc} 
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{microtype}
 
@@ -59,7 +59,7 @@
 
 \section{Introduction}
 \label{sec:intro}
- 
+
 Software metrics provide a means to extract useful and measurable information about the structure of a software system. Since software artefacts consist of digital data, many of their aspects are easily measured. This explains why the first metrics like LOC (Lines Of Code) and CLOC (Comment Lines of Code) appeared very early. Over the years, a wealth of different metrics has appeared in the literature \cite{GUSC07,BBM96,LOKI94,HK81,BDM97} and some of them, like Chidamber and Kemerer \cite{CHKE94} have found their way in software development practice and tools.
 
 Today a software engineer or developer has a very large list of metrics at his disposition in order to gain the required insight for understanding and evaluating the size, complexity and overall structure of a system. This has led researchers to try to discover which set of metrics is most appropriate for each environment \cite{XSZC00,PUVA03,MAHA99,BRCA94}. There also exist metrics that can be used to evaluate other aspects of a system, such as the process that was used to develop it.
@@ -69,14 +69,14 @@ Today a software engineer or developer has a very large list of metrics at his d
 
  Maven is a build automation tool used primarily for Java projects, and it is hosted by the Apache Software Foundation\footnote{\url{http://www.apache.org/}}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as basis. These languages include Java, Clojure, Groovy, and Scala.
 
-Initially, a snapshot (January 2012) of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project. 
+Initially, a snapshot (January 2012) of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project.
 
 All versions were filtered out and only the latest was kept. For each version in the Maven repository, each binary {\sc jar} file is accompanied by another {\sc jar}, which contains the source code. Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 12,959 projects, with more than 110 million lines of code.
 
 \begin{itemize}
   \item \textbf{CKJM-ext} \textit{(ckjm)}\footnote{\url{http://www.spinellis.gr/sw/ckjm/}} is an open source tool that was developed by Diomidis Spinellis and then extended by Marian Jureczko. It calculates many software complexity metrics, including the \textit{Chidamber and Kemmerer} set of metrics \cite{CHKE94}.
 
-  \item \textbf{JDepend} \textit{(jdep)} 
+  \item \textbf{JDepend} \textit{(jdep)}
 
   \item \textbf{CLMT} \textit{(clmt)}
 \end{itemize}
@@ -87,7 +87,7 @@ All versions were filtered out and only the latest was kept. For each version in
 \label{tbl:oss-size-metrics}
 \begin{tabular}{l r}
  \hline
-\textbf{Metric} & \textbf{Value}\\ 
+\textbf{Metric} & \textbf{Value}\\
 \hline
 Project Count & 12,959\\
 File Count & 604,821\\
@@ -104,7 +104,7 @@ Number of Enumerations & 12,732\\
 
 \begin{table}
 \centering
-\caption{Selected Metrics}
+\caption{Available Metrics}
 \label{tbl:selected-metrics}
 \begin{tabular}{l l}
  \hline
@@ -117,12 +117,12 @@ Response For Class & \textit{ckjm}\\
 Lack Of Cohesion In Methods & \textit{ckjm}\\
 Number Of Children & \textit{ckjm}\\
 Attribute Hiding Factor & \textit{clmt}\\
-Coupling Between Methods & \textit{ckjm}\\ 
+Coupling Between Methods & \textit{ckjm}\\
 Average Method Complexity & \textit{ckjm}\\
 Cohesion Among Methods of Class & \textit{ckjm}\\
-Data Access Metric & \textit{ckjm}\\ 
+Data Access Metric & \textit{ckjm}\\
 Inheritance Coupling & \textit{ckjm}\\
-Lack Of Cohesion In Methods3 & \textit{ckjm}\\ 
+Lack Of Cohesion In Methods3 & \textit{ckjm}\\
 McCabe Cyclomatic Complexity & \textit{ckjm}\\
 Measure Of Aggregation & \textit{ckjm}\\
 Measure Of Functional Abstraction & \textit{ckjm}\\
@@ -142,7 +142,7 @@ Comments Lines Of Code & \textit{clmt}\\
 Lines Of Code & \textit{clmt}\\
 Native Methods Per Code Unit & \textit{clmt}\\
 Native Methods Per Project & \textit{clmt}\\
-Source Lines Of Code & \textit{clmt}\\ 
+Source Lines Of Code & \textit{clmt}\\
 Function Oriented Code & \textit{clmt}\\
 \hline
 \end{tabular}
@@ -235,6 +235,6 @@ The Maven ecosystem has been previously analyzed by Raemaekers et al.~\cite{RDV1
 
 
 \bibliographystyle{abbrv}
-\bibliography{msr}  
+\bibliography{msr}
 
 \end{document}
