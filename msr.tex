@@ -104,11 +104,11 @@ Number of Enumerations & 12,732\\
 
 \begin{table}
 \centering
-\caption{Available Metrics}
+\caption{Key Metrics}
 \label{tbl:selected-metrics}
 \begin{tabular}{l l}
  \hline
-\multicolumn{2}{l}{\textit{\textbf{Class \& Method Design}}}\\
+\multicolumn{2}{l}{\textit{\textbf{Class Design}}}\\
 \hline
 Depth Of Inheritance Tree & \textit{ckjm}\\
 Coupling Between Objects & \textit{ckjm}\\
@@ -123,13 +123,20 @@ Cohesion Among Methods of Class & \textit{ckjm}\\
 Data Access Metric & \textit{ckjm, clmt}\\
 Inheritance Coupling & \textit{ckjm}\\
 Lack Of Cohesion In Methods3 & \textit{ckjm}\\
-McCabe Cyclomatic Complexity & \textit{ckjm, clmt}\\
 Measure Of Aggregation & \textit{ckjm}\\
 Measure Of Functional Abstraction & \textit{ckjm}\\
+Number of Attributes & \textit{clmt}\\
 Method Hiding Factor & \textit{clmt}\\
+\hline
+\multicolumn{2}{l}{\textit{\textbf{Method Design}}}\\
+\hline
+Number of Method Parameters & \textit{clmt}\\
+Number of Methods & \textit{clmt, ckjm}\\
+McCabe Cyclomatic Complexity & \textit{ckjm, clmt}\\
 \hline
 \multicolumn{2}{l}{\textit{\textbf{Package Design}}}\\
 \hline
+Number of Concrete Classes & \textit{jdep}\\
 Afferent Couplings & \textit{jdep, ckjm}\\
 Efferent Couplings & \textit{jdep, ckjm}\\
 Instability & \textit{jdep}\\
@@ -138,11 +145,12 @@ Distance Main Sequence & \textit{jdep}\\
 \hline
 \multicolumn{2}{l}{\textit{\textbf{Program Size Metrics}}}\\
 \hline
-Module Count & \textit{clmt}\\
+Number of Classes & \textit{clmt, ckjm, jdep}\\
+Number of Enumerations & \textit{clmt, ckjm}\\
+Number of Interfaces & \textit{clmt, ckjm}\\
+Module Count & \textit{clmt, ckjm}\\
 Comments Lines Of Code & \textit{clmt}\\
 Lines Of Code & \textit{clmt, ckjm}\\
-Native Methods Per Code Unit & \textit{clmt}\\
-Native Methods Per Project & \textit{clmt}\\
 Source Lines Of Code & \textit{clmt}\\
 Function Oriented Code & \textit{clmt}\\
 DSL Usage Count & \textit{clmt}\\
