@@ -27,7 +27,7 @@
 \CopyrightYear{2015}
 \crdata{978-1-4503-2863-0/14/05}
 
-\title{The Three Corridors}
+\title{Generating the Blueprints of the Maven Repository}
 
 \numberofauthors{5}
 
@@ -71,14 +71,6 @@ Initially, a snapshot (January 2012) of the Maven repository was downloaded loca
 
 All versions were filtered out and only the latest was kept. For each version in the Maven repository, each binary {\sc jar} file is accompanied by another {\sc jar}, which contains the source code. Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 12,959 projects, with more than 110 million lines of code.
 
-\begin{itemize}
-  \item \textbf{CKJM-ext} \textit{(ckjm)}\footnote{\url{http://www.spinellis.gr/sw/ckjm/}} is an open source tool that was developed by Diomidis Spinellis and then extended by Marian Jureczko. It calculates many software complexity metrics, including the \textit{Chidamber and Kemmerer} set of metrics \cite{CHKE94}.
-
-  \item \textbf{JDepend} \textit{(jdep)}
-
-  \item \textbf{CLMT} \textit{(clmt)}
-\end{itemize}
-
 \begin{table}
 \centering
 \caption{The selected Maven projects' size metrics}
@@ -99,6 +91,20 @@ Number of Enumerations & 12,732\\
 \hline
 \end{tabular}
 \end{table}
+
+\section{The Toolset}
+
+Three tools were selected.
+
+\begin{itemize}
+  \item \textbf{CKJM-ext} \textit{(ckjm)}\footnote{\url{http://www.spinellis.gr/sw/ckjm/}} is an open source tool that was developed by Diomidis Spinellis and then extended by Marian Jureczko. It calculates many software complexity metrics, including the \textit{Chidamber and Kemmerer} set of metrics \cite{CHKE94}. The version of the tool that we used for this experinment can be found in github\footnote{\url{https://github.com/bkarak/ckjm_ext}}.
+
+  \item \textbf{JDepend} \textit{(jdep)}\footnote{\url{http://clarkware.com/software/JDepend.html}} is an source tool that analyses {\sc jar} files that contain compiled Java classes and calculates a series of design metrics.
+
+  \item \textbf{CLMT} \textit{(clmt)} stands for cross-language metric tool and analyses Java source code in order to calculate a series of metrics.
+\end{itemize}
+
+Table~\ref{tbl:selected-metrics} presents the key metrics that exist in the dataset. Note that each tool
 
 \begin{table}
 \centering
