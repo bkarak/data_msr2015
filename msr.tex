@@ -97,7 +97,7 @@ Three tools were selected.
 \begin{itemize}
   \item \textbf{CKJM-ext} \textit{(ckjm)}~\cite{Spi05g} is an open source tool that was developed by Diomidis Spinellis and then extended by Marian Jureczko. It calculates many software complexity metrics, including the \textit{Chidamber and Kemmerer} set of object-oriented metrics \cite{CHKE94}. The version of the tool that we used for this experiment can be found in github~\cite{CKJM}.
 
-  \item \textbf{JDepend} \textit{(jdep)}~\cite{JDEPEND} is an source tool that analyses {\sc jar} files that contain compiled Java classes and calculates a series of design metrics.
+  \item \textbf{JDepend} \textit{(jdep)}~\cite{JDEPEND} is a tool that analyses {\sc jar} files that contain compiled Java classes and calculates a series of design metrics.
 
   \item \textbf{CLMT} \textit{(clmt)} stands for \textit{cross-language metric tool} and analyses the source code of several languages in order to calculate a series of size metrics.
 \end{itemize}
@@ -164,7 +164,7 @@ File Count & \textit{clmt}\\
 \section{Database Structure}
 \label{sec:db}
 
-Figure~\ref{fig:database-schema} illustrates the database
+Figure~\ref{fig:database-schema} illustrates the database schema. The data are stored in a straightforward manner.
 
 \begin{figure*}
 \centering
@@ -201,16 +201,7 @@ HTML & \verb|javax.swing.text.html|\\
 \end{tabular}
 \end{table}
 
-The initial goal of this experiment was simply to provide quantifiable results that are indicative regarding the usage of each {\sc dsl}, thus only files containing Java code were taken into account. Build files or other resources that may contain {\sc dsl}s were not included.
-
-One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees.
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.65]{dsl-usage}
-\caption{DSL language usage in Java projects}
-\label{fig:dsl-usage}
-\end{figure}
+The initial goal of this experiment was simply to provide quantifiable results that are indicative regarding the usage of each {\sc dsl}, thus only files containing Java code were taken into account. Build files or other resources that may contain {\sc dsl}s were not included. One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees.
 
 \begin{table}
 \centering
@@ -250,9 +241,7 @@ HTML, XML & 10\\
 \section{Related Work}
 \label{sec:rel}
 
-The Maven ecosystem has been previously analyzed by Raemaekers et al.~\cite{RDV13} to produce the {\it Maven dependency dataset}. Apart from basic information like individual methods, classes, packages and lines of code for every {\sc jar}, this dataset also includes a database with all the connections between the aforementioned elements. Our work differs from this research because it reports all bugs coming from the output of a static analysis tool, for each {\sc jar} contained in the Maven repository.
-
-In publication \cite{MKLGS14}, a
+The Maven ecosystem has been previously analyzed by Raemaekers et al.~\cite{RDV13} to produce the {\it Maven dependency dataset}. Apart from basic information like individual methods, classes, packages and lines of code for every {\sc jar}, this dataset also includes a database with all the connections between the aforementioned elements. In publication \cite{MKLGS14}, Mitropoulos et al. also experimented in a similar way, by running the findbugs~\cite{HP04} security and bugs audit tool on a large part of the maven repository. Our work differs from these these two approaches since it presents the metrics calculated by the three aforementioned tools; \textit{ckjm}, \textit{jdepend}, and \textit{clmt}.
 
 \section{Conclusions}
 \label{sec:conc}
