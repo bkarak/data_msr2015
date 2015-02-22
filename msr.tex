@@ -67,7 +67,7 @@ Software metrics provide a means to extract useful and measurable information ab
 
 Initially, a snapshot (January 2012) of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project.
 
-All versions were filtered out and only the latest was kept. For each version in the Maven repository, each binary {\sc jar} file is accompanied by another {\sc jar}, which contains the source code. Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 12,959 projects, with more than 110 million lines of code.
+All versions were filtered out and only the latest was kept. For each version in the Maven repository, each binary {\sc jar} file is accompanied by another {\sc jar}, which contains the source code. Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 12,959 projects, with more than 110 million lines of code. Overall the dataset contains almost 33 million unique measurements.
 
 \begin{table}
 \centering
@@ -77,7 +77,7 @@ All versions were filtered out and only the latest was kept. For each version in
  \hline
 \textbf{Metric} & \textbf{Value}\\
 \hline
-Project Count & 12,959\\
+Project Count & 11,365\\
 File Count & 604,821\\
 Module Count & 72,302\\
 Lines of Code & 110,156,703\\
@@ -86,6 +86,7 @@ Comment Lines of Code & 36,696,217\\
 Number of Classes & 499,588\\
 Number of Interfaces & 89,145\\
 Number of Enumerations & 12,732\\
+Measurement Count & 32,844,836\\
 \hline
 \end{tabular}
 \end{table}
