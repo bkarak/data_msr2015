@@ -90,20 +90,19 @@ Number of Enumerations & 12,732\\
 \end{tabular}
 \end{table}
 
-\section{The Toolset}
+\section{The Three Tools}
 
 Three tools were selected.
 
 \begin{itemize}
-
   \item \textbf{CKJM-ext} \textit{(ckjm)}~\cite{Spi05g} is an open source tool that was developed by Diomidis Spinellis and then extended by Marian Jureczko. It calculates many software complexity metrics, including the \textit{Chidamber and Kemmerer} set of object-oriented metrics \cite{CHKE94}. The version of the tool that we used for this experiment can be found in github~\cite{CKJM}.
 
   \item \textbf{JDepend} \textit{(jdep)}~\cite{JDEPEND} is an source tool that analyses {\sc jar} files that contain compiled Java classes and calculates a series of design metrics.
 
-  \item \textbf{CLMT} \textit{(clmt)} stands for cross-language metric tool and analyses Java source code in order to calculate a series of metrics.
+  \item \textbf{CLMT} \textit{(clmt)} stands for \textit{cross-language metric tool} and analyses the source code of several languages in order to calculate a series of size metrics.
 \end{itemize}
 
-Table~\ref{tbl:selected-metrics} presents the key metrics that are calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on
+Table~\ref{tbl:selected-metrics} presents the key metrics that are calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on package design, while \textit{clmt} focuses on program size metrics. Several metrics are calculated by more than one tools in this dataset, like \textit{cyclomatic complexity}, which is calculated by both \textit{clmt} and \textit{ckjm}. Both calculation are stored and provided by the dataset.
 
 \begin{table}
 \centering
