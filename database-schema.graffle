@@ -63,8 +63,8 @@
 			<integer>52</integer>
 			<key>Points</key>
 			<array>
-				<string>{171.5, 165}</string>
-				<string>{223.5, 165}</string>
+				<string>{178.49994521344999, 190.07351304342023}</string>
+				<string>{223.50010648678395, 190.73983437567384}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -96,8 +96,8 @@
 			<integer>51</integer>
 			<key>Points</key>
 			<array>
-				<string>{307.00001175631894, 228.5}</string>
-				<string>{307.00001175631894, 186.5}</string>
+				<string>{332.99999509347884, 284.5}</string>
+				<string>{332.99999509347884, 242.5}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -129,8 +129,8 @@
 			<integer>50</integer>
 			<key>Points</key>
 			<array>
-				<string>{307.00001102458435, 67.5}</string>
-				<string>{307.00001102458435, 129.5}</string>
+				<string>{332.99998986445462, 87.5}</string>
+				<string>{332.99998986445462, 129.5}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -168,8 +168,8 @@
 			<real>-1</real>
 			<key>Points</key>
 			<array>
-				<string>{442.5, 165.00001903511145}</string>
-				<string>{390.5, 165.00001903511145}</string>
+				<string>{487.5, 193.00815523483891}</string>
+				<string>{442.50000000000011, 193.01271406176747}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -198,7 +198,7 @@
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{227, 25}, {160, 14}}</string>
+					<string>{{253, 45}, {160, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -234,7 +234,7 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{227, 39}, {160, 28}}</string>
+					<string>{{253, 59}, {160, 28}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -291,7 +291,7 @@ mt_name:
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{224, 130}, {166, 14}}</string>
+					<string>{{224, 130}, {218, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -327,7 +327,7 @@ mt_name:
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{224, 144}, {166, 42}}</string>
+					<string>{{224, 144}, {218, 98}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -363,7 +363,11 @@ meas_value:
 \i varchar(500)
 \i0 \
 meas_id: 
-\i int(11)}</string>
+\i int(11)\
+meas_filename: int(11)\
+cat_pk: int(11)\
+prj_pk: int(11)\
+mt_pk: int(11)}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -387,7 +391,7 @@ meas_id:
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{443, 137}, {140, 14}}</string>
+					<string>{{488, 165}, {160, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -423,7 +427,7 @@ meas_id:
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{443, 151}, {140, 28}}</string>
+					<string>{{488, 179}, {160, 28}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -452,10 +456,10 @@ meas_id:
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
-\f0\fs24 \cf0 fl_pk: 
+\f0\fs24 \cf0 ident_pk: 
 \i int(11)
 \i0 \
-fl_name: 
+ident_name: 
 \i varchar(500)}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
@@ -480,7 +484,7 @@ fl_name:
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{232.5, 229}, {149, 14}}</string>
+					<string>{{258.5, 285}, {149, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -516,7 +520,7 @@ fl_name:
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{232.5, 243}, {149, 28}}</string>
+					<string>{{258.5, 299}, {149, 28}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -573,7 +577,7 @@ cat_name:
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{27, 137}, {144, 14}}</string>
+					<string>{{34, 161}, {144, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -609,7 +613,7 @@ cat_name:
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{27, 151}, {144, 28}}</string>
+					<string>{{34, 175}, {144, 28}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -707,7 +711,7 @@ prj_name:
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-02-22 12:21:01 +0000</string>
+	<string>2015-02-22 20:24:48 +0000</string>
 	<key>Modifier</key>
 	<string>vassilios karakoidas</string>
 	<key>NotesVisible</key>

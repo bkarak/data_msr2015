@@ -164,7 +164,15 @@ File Count & \textit{clmt}\\
 \section{Database Structure}
 \label{sec:db}
 
-Figure~\ref{fig:database-schema} illustrates the database schema. The data are stored in a straightforward manner.
+Figure~\ref{fig:database-schema} illustrates the database schema. The data are stored in a straightforward manner. The database schema consists of five tables; \textit{measurement}, \textit{category}, \textit{identifiers}, \textit{measurement\_type}, and \textit{project}. The central table is \textit{measurement}, which holds the actual measurement values. The other tables are used as normalisation tables.
+
+Metrics are divided in six categories that defined its scope; \textit{module}, \textit{class}, \textit{method}, \textit{code unit}, and \textit{project-wide}. These values are stored in \textit{category} table.
+
+The descriptive names for each metric are stored in the \textit{measurement\_type} table. There are 65 metrics available in the dataset. The names are composed by the actual metric name and the tool that was used to calculate them e.g. \textit{McCabe\_clmt} denotes that the metric name is the McCabe cyclomatic complexity from the clmt tool, while \textit{McCabe\_ckjm} means that it is the same metric calculated by the ckjm tool.
+
+Filenames, method, class and package names along with other identifiers are stored in the \textit{identifiers} table. Note that each measurement has a related filename and a related identifier that points to the software element that is related e.g. the \textit{afferent coupling} metric for the module in the directory ``com/scalagent/jmx'' is related with the identifier \textit{com.scalagent.jmx}.
+
+Finally the table \textit{project} contains the related project identifiers, extracted from the maven repository.
 
 \begin{figure*}
 \centering
