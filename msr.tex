@@ -58,7 +58,7 @@
 \section{Introduction}
 \label{sec:intro}
 
-Software metrics provide a means to extract useful and measurable information about the structure of a software system. Since software artifacts consist of digital data, many of their aspects are easily measured. This explains why the first metrics like {\sc loc} (Lines of Code) and {\sc cloc} (Comment Lines of Code) appeared very early. Over the years, a wealth of different metrics has appeared in the literature and some of them, like Chidamber and Kemerer \cite{CHKE94} and those presented by Lorenz et al. \cite{LOKI94} that have found their way in software development practice and tools.
+Software metrics provide a means to extract useful and measurable information about the structure of a software system. Since software artifacts consist of digital data, many of their aspects are easily measured. This explains why the first metrics like {\sc loc} (Lines of Code) and {\sc cloc} (Comment Lines of Code) appeared very early. Over the years, a wealth of different metrics has appeared in the literature and some of them, like Chidamber and Kemerer~\cite{CHKE94} and those presented by Lorenz et al.~\cite{LOKI94} that have found their way in software development practice and tools.
 
 \section{Dataset Contents}
 \label{sec:data}
@@ -92,7 +92,7 @@ Number of Enumerations & 12,732\\
 
 \section{The Three Tools}
 
-Three tools were selected.
+Table~\ref{tbl:selected-metrics} presents the key metrics that are calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on package design, while \textit{clmt} focuses on program size metrics. Several metrics are calculated by more than one tools in this dataset, like \textit{cyclomatic complexity}, which is calculated by both \textit{clmt} and \textit{ckjm}. Both calculation are stored and provided by the dataset. Three tools were selected.
 
 \begin{itemize}
   \item \textbf{CKJM-ext} \textit{(ckjm)}~\cite{Spi05g} is an open source tool that was developed by Diomidis Spinellis and then extended by Marian Jureczko. It calculates many software complexity metrics, including the \textit{Chidamber and Kemmerer} set of object-oriented metrics \cite{CHKE94}. The version of the tool that we used for this experiment can be found in github~\cite{CKJM}.
@@ -101,8 +101,6 @@ Three tools were selected.
 
   \item \textbf{CLMT} \textit{(clmt)} stands for \textit{cross-language metric tool} and analyses the source code of several languages in order to calculate a series of size metrics.
 \end{itemize}
-
-Table~\ref{tbl:selected-metrics} presents the key metrics that are calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on package design, while \textit{clmt} focuses on program size metrics. Several metrics are calculated by more than one tools in this dataset, like \textit{cyclomatic complexity}, which is calculated by both \textit{clmt} and \textit{ckjm}. Both calculation are stored and provided by the dataset.
 
 \begin{table}
 \centering
