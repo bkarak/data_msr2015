@@ -63,7 +63,7 @@ Software metrics provide a means to extract useful and measurable information ab
 \section{Dataset Contents}
 \label{sec:data}
 
- Maven is a build automation tool used primarily for Java projects, and it is hosted by the Apache Software Foundation\footnote{\url{http://www.apache.org/}}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as basis. These languages include Java, Clojure, Groovy, and Scala.
+ Maven is a build automation tool used primarily for Java projects, and it is hosted by the Apache Software Foundation~\cite{MAVEN}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as basis. These languages include Java, Clojure, Groovy, and Scala.
 
 Initially, a snapshot (January 2012) of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project.
 
@@ -103,7 +103,7 @@ Three tools were selected.
   \item \textbf{CLMT} \textit{(clmt)} stands for cross-language metric tool and analyses Java source code in order to calculate a series of metrics.
 \end{itemize}
 
-Table~\ref{tbl:selected-metrics} presents the key metrics that exist in the dataset. Note that each tool
+Table~\ref{tbl:selected-metrics} presents the key metrics that are calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on
 
 \begin{table}
 \centering
@@ -164,6 +164,8 @@ File Count & \textit{clmt}\\
 
 \section{Database Structure}
 \label{sec:db}
+
+Figure~\ref{fig:database-schema} illustrates the database
 
 \begin{figure*}
 \centering
@@ -246,16 +248,19 @@ HTML, XML & 10\\
 \section{Limitations}
 \label{sec:limit}
 
-
 \section{Related Work}
 \label{sec:rel}
 
 The Maven ecosystem has been previously analyzed by Raemaekers et al.~\cite{RDV13} to produce the {\it Maven dependency dataset}. Apart from basic information like individual methods, classes, packages and lines of code for every {\sc jar}, this dataset also includes a database with all the connections between the aforementioned elements. Our work differs from this research because it reports all bugs coming from the output of a static analysis tool, for each {\sc jar} contained in the Maven repository.
 
-\cite{MKLGS14} \cite{KARA14}
+In publication \cite{MKLGS14}, a
 
 \section{Conclusions}
 \label{sec:conc}
+
+\section{Availability}
+
+The dataset and the source code of this publication, along with some utility scripts are available at \url{https://github.com/bkarak/data_msr2015}.
 
 \bibliographystyle{abbrv}
 \bibliography{msr}
