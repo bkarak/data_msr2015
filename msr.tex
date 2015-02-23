@@ -27,7 +27,7 @@
 \CopyrightYear{2015}
 \crdata{978-1-4503-2863-0/14/05}
 
-\title{Generating the Blueprints of Java Ecosystem}
+\title{Generating the Blueprints of the Java Ecosystem}
 
 \numberofauthors{5}
 
@@ -66,16 +66,18 @@
 \section{Introduction}
 \label{sec:intro}
 
-Software metrics provide a means to extract useful and measurable information about the structure of a software system. Since software artifacts consist of digital data, many of their aspects are easily measured. This explains why the first metrics like {\sc loc} (Lines of Code) and {\sc cloc} (Comment Lines of Code) appeared very early. Over the years, a wealth of different metrics has appeared in the literature and some of them, like Chidamber and Kemerer~\cite{CHKE94} and those presented by Lorenz et al.~\cite{LOKI94} that have found their way in software development practice and tools.
+Software metrics provide a means to extract useful and measurable information about the structure of a software system. Since software artifacts consist of digital data, many of their aspects are easily measured. This explains why the first metrics like {\sc loc} (Lines of Code) and {\sc cloc} (Comment Lines of Code) appeared very early. Over the years, a wealth of different metrics have appeared in the literature. Furthermore, some of them, like Chidamber and Kemerer's~\cite{CHKE94} and those presented by Lorenz et al.~\cite{LOKI94} can be automatically calculated by static analysis tools. % dimitro@bkarak: provide corresponding refs. Also you need to bulk this up. A paragraph referring to what we did. e.g "In this paper we present a dataset produced by applying three tools on all versions of a snapshot of the Maven repository. [...]".
 
 \section{Dataset Contents}
 \label{sec:data}
 
- Maven is a build automation tool used primarily for Java projects, and it is hosted by the Apache Software Foundation~\cite{MAVEN}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as basis. These languages include Java, Clojure, Groovy, and Scala.
+% dimitro@bkarak: This section *does not* present the dataset. It presents Maven. You should rename the section to "Dataset Construction Process" and merge it with the upcoming one. It should go like this: 1) We got this snapshot and 2) applied these three tools to create what you see in the next section. You'll present the experiment and *advertise* the effort.
+
+Maven is a build automation tool used primarily for Java projects, and it is hosted by the Apache Software Foundation~\cite{MAVEN}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as basis. These languages include Java, Clojure, Groovy, and Scala.
 
 Initially, a snapshot (January 2012) of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project.
 
-All versions were filtered out and only the latest was kept. For each version in the Maven repository, each binary {\sc jar} file is accompanied by another {\sc jar}, which contains the source code. Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 12,959 projects, with more than 110 million lines of code. Overall the dataset contains almost 33 million unique measurements.
+All versions were filtered out and only the latest was kept. For each version in the Maven repository, each binary {\sc jar} file is accompanied by another {\sc jar}, which contains the source code. Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 12,959 projects, with more than 110 million lines of code. Overall the dataset contains almost 33 million unique measurements. 
 
 \begin{table}
 \centering
@@ -191,9 +193,9 @@ Finally the table \textit{project} contains the related project identifiers, ext
 \section{Experimenting with the Dataset}
 \label{sec:dsl}
 
-The Java Platform exists more than a decade and provides a development environment for several application areas, such as web, grid computing, and traditional client-server applications. The official development environment of the Java platform is released by Oracle and is widely-known as the Java Standard Edition {\sc sdk}. The process of development and innovation in the Java ecosystem is built around a community, that writes proposals of features, known as {\sc jsr}s (Java Specification Requests), which are supported by prototype implementations.
+The Java platform exists for more than a decade and provides a development environment for several application areas, such as web, grid computing, and traditional client-server applications. The official development environment of the Java platform is released by Oracle and is widely-known as the Java Standard Edition {\sc sdk}. The process of development and innovation in the Java ecosystem is built around a community, that writes proposals of features, known as Java Specification Requests ({\sc jsr}s), which are supported by prototype implementations.
 
-In the literature, it is referred that {\sc dsl}s are used to reduce software development cost, by introducing domain efficiency \cite{MHS05}. This thesis focuses on practical research aspects as well as with the theoretical ones; thus the first problem that needs to be examined, is to measure the adoption of {\sc dsl}s in software projects. In addition, the average number of {\sc dsl}s usually used in a software project needs to be investigated.
+In the literature, it is suggested that {\sc dsl}s are used to reduce software development cost, by introducing domain efficiency \cite{MHS05}. This thesis focuses on practical research aspects as well as with the theoretical ones; thus the first problem that needs to be examined, is to measure the adoption of {\sc dsl}s in software projects. In addition, the average number of {\sc dsl}s usually used in a software project needs to be investigated.
 
 The methodology was the following; A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used. If a package is detected in the source code, then the project will be tagged that it uses one (1) {\sc dsl}. Consequently, if a project has {\sc dsl} count four (4), then it means that four (4) different application libraries were detected during the source code scan. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that all these libraries are included as part of the Java {\sc sdk}.
 
@@ -216,7 +218,7 @@ HTML & \verb|javax.swing.text.html|\\
 \end{tabular}
 \end{table}
 
-The initial goal of this experiment was simply to provide quantifiable results that are indicative regarding the usage of each {\sc dsl}, thus only files containing Java code were taken into account. Build files or other resources that may contain {\sc dsl}s were not included. One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees.
+The initial goal of this experiment was to provide quantifiable results that are indicative regarding the usage of each {\sc dsl}, thus only files containing Java code were taken into account. Build files or other resources that may contain {\sc dsl}s were not included. One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees.
 
 \begin{table}
 \centering
@@ -256,7 +258,7 @@ HTML, XML & 10\\
 \section{Related Work}
 \label{sec:rel}
 
-The Maven ecosystem has been previously analyzed by Raemaekers et al.~\cite{RDV13} to produce the {\it Maven dependency dataset}. Apart from basic information like individual methods, classes, packages and lines of code for every {\sc jar}, this dataset also includes a database with all the connections between the aforementioned elements. In publication \cite{MKLGS14}, Mitropoulos et al. also experimented in a similar way, by running the findbugs~\cite{HP04} security and bugs audit tool on a large part of the maven repository. Our work differs from these these two approaches since it presents the metrics calculated by the three aforementioned tools; \textit{ckjm}, \textit{jdepend}, and \textit{clmt}.
+The Maven ecosystem has been previously analyzed by Raemaekers et al.~\cite{RDV13} to produce the {\it Maven dependency dataset}. Apart from basic information like individual methods, classes, packages and lines of code for every {\sc jar}, this dataset also includes a database with all the connections between the aforementioned elements. In publication \cite{MKLGS14}, Mitropoulos et al. also experimented in a similar way, by running the FindBugs~\cite{HP04} tool on a large part of the maven repository. Our work differs from these two approaches since it presents the metrics calculated by the three aforementioned tools; \textit{ckjm}, \textit{jdepend}, and \textit{clmt}.
 
 \section{Conclusions}
 \label{sec:conc}
