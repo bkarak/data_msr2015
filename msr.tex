@@ -66,11 +66,11 @@
 \section{Introduction}
 \label{sec:intro}
 
-Software metrics provide a means to extract useful and measurable information about the structure of a software system. Since software artifacts consist of digital data, many of their aspects are easily measured. This explains why the first metrics like {\sc loc} (Lines of Code) and {\sc cloc} (Comment Lines of Code) appeared very early. Over the years, a wealth of different metrics have appeared in the literature. Furthermore, some of them, like Chidamber and Kemerer's~\cite{CHKE94} and those presented by Lorenz et al.~\cite{LOKI94} can be automatically calculated by static analysis tools. 
+Software metrics provide a means to extract useful and measurable information about the structure of a software system. Since software artifacts consist of digital data, many of their aspects are easily measured. This explains why the first metrics like {\sc loc} (Lines of Code) and {\sc cloc} (Comment Lines of Code) appeared very early. Over the years, a wealth of different metrics have appeared in the literature. Furthermore, some of them, like Chidamber and Kemerer's~\cite{CHKE94} and those presented by Lorenz et al.~\cite{LOKI94} can be automatically calculated by static analysis tools.
 
-In this paper, we present a dataset that contains popular metrics, focusing on providing calculation for a large collection of the Java ecosystem. For this purpose we selected the maven~\cite{MAVEN} repository. The tools that were used are the \textit{ckjm} \cite{Spi05g}, \textit{jdepend}~\cite{JDEPEND}, and \textit{clmt}~\cite{SGKL09}.
+In this paper, we present a dataset that contains popular metrics, focusing on providing calculation for a large collection of the Java ecosystem. For this purpose we selected the maven~\cite{MAVEN} repository. The tools that were used are the \textit{ckjm} \cite{Spi05g}, \textit{jdepend}~\cite{JDEPEND}, and \textit{clmt}~\cite{SGKL09}. These tools focus on three main aspects of a software system; object-oriented design, program size, and package design.
 
-% dimitro@bkarak: provide corresponding refs. Also you need to bulk this up. A paragraph referring to what we did. e.g "In this paper we present a dataset produced by applying three tools on all versions of a snapshot of the Maven repository. [...]".
+The rest of the paper is structured as follows; first, the datasert construction process is presented and analysed. Then we analyse the schema of the database. Along with the dataset limitations, we present examples and ideas of basic experimentation with the measurements.
 
 \section{Dataset Construction Process}
 \label{sec:data}
@@ -257,13 +257,23 @@ HTML, XML & 10\\
 \section{Limitations}
 \label{sec:limit}
 
+This dataset followed a narrow selection process, identifying and analysing only projects that were written in Java and had the source code and the binary jar available in the repository. The latter reduced significantly the number of projects that were analysed, since many of them provided only the binary jar. Since only \textit{clmt} analyses the source code, this ended in drastically reduction of measurements that were exposing object-oriented and package design issues.
+
+In addition, only one version was analysed per project. Usually, the latest, which was replaced by a prior version, only if it was violating the aforementioned selection process. This decision rendered the dataset unusable, for research focused on evolutionary changes of a software project.
+
 \section{Related Work}
 \label{sec:rel}
 
-The Maven ecosystem has been previously analyzed by Raemaekers et al.~\cite{RDV13} to produce the {\it Maven dependency dataset}. Apart from basic information like individual methods, classes, packages and lines of code for every {\sc jar}, this dataset also includes a database with all the connections between the aforementioned elements. In publication \cite{MKLGS14}, Mitropoulos et al. also experimented in a similar way, by running the FindBugs~\cite{HP04} tool on a large part of the maven repository. Our work differs from these two approaches since it presents the metrics calculated by the three aforementioned tools; \textit{ckjm}, \textit{jdepend}, and \textit{clmt}.
+The Maven ecosystem has been previously analyzed by Raemaekers et al.~\cite{RDV13} to produce the {\it Maven dependency dataset}. Apart from basic information like individual methods, classes, packages and lines of code for every {\sc jar}, this dataset also includes a database with all the connections between the aforementioned elements.
+
+In reference \cite{MKLGS14}, Mitropoulos et al. also experimented in a similar way, by running the FindBugs~\cite{HP04} tool on a large part of the maven repository. Our work differs from these two approaches since it presents the metrics calculated by the three aforementioned tools; \textit{ckjm}, \textit{jdepend}, and \textit{clmt}.
 
 \section{Conclusions}
 \label{sec:conc}
+
+This dataset is a source of measurements for a large selection of projects, covering the basic scopes of software design, with metrics covering from program size to object-oriented design. In the future, we plan to keep an updated version of the dataset, by analysing the new additions and updates of the maven repository. In addition, our selection process should be more elastic, allowing the participation of projects, that cannot be analysed by all the tools, due to source code unavailability.
+
+Finally, all versions for each project should also be included, allowing researchers to include the dataset to approaches that focusing on the evolutionary aspect of a software package.
 
 \section{Availability}
 
