@@ -75,8 +75,6 @@ The rest of the paper is structured as follows; first, the datasert construction
 \section{Dataset Construction Process}
 \label{sec:data}
 
-% dimitro@bkarak: This section *does not* present the dataset. It presents Maven. You should rename the section to "Dataset Construction Process" and merge it with the upcoming one. It should go like this: 1) We got this snapshot and 2) applied these three tools to create what you see in the next section. You'll present the experiment and *advertise* the effort.
-
 Maven is a build automation tool used primarily for Java projects, and it is hosted by the Apache Software Foundation~\cite{MAVEN}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as basis. These languages include Java, Clojure, Groovy, and Scala.
 
 Initially, a snapshot (January 2012) of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project.
@@ -195,9 +193,9 @@ Finally the table \textit{project} contains the related project identifiers, ext
 \section{Experimenting with the Dataset}
 \label{sec:dsl}
 
-The Java platform exists for more than a decade and provides a development environment for several application areas, such as web, grid computing, and traditional client-server applications. The official development environment of the Java platform is released by Oracle and is widely-known as the Java Standard Edition {\sc sdk}. The process of development and innovation in the Java ecosystem is built around a community, that writes proposals of features, known as Java Specification Requests ({\sc jsr}s), which are supported by prototype implementations.
+The Java platform exists for more than a decade and provides a development environment for several application areas, such as web, grid computing, and traditional client-server applications. The official development environment of the Java platform is released by Oracle and is widely-known as the Java Standard Edition {\sc sdk}.
 
-In the literature, it is suggested that {\sc dsl}s are used to reduce software development cost, by introducing domain efficiency \cite{MHS05}. This thesis focuses on practical research aspects as well as with the theoretical ones; thus the first problem that needs to be examined, is to measure the adoption of {\sc dsl}s in software projects. In addition, the average number of {\sc dsl}s usually used in a software project needs to be investigated.
+By using the dataset, one small problem that needs to be examined, is to measure the adoption of {\sc dsl}s in software projects. In addition, the average number of {\sc dsl}s usually used in a software project needs to be investigated.
 
 The methodology was the following; A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used. If a package is detected in the source code, then the project will be tagged that it uses one (1) {\sc dsl}. Consequently, if a project has {\sc dsl} count four (4), then it means that four (4) different application libraries were detected during the source code scan. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that all these libraries are included as part of the Java {\sc sdk}.
 
