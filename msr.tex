@@ -68,34 +68,25 @@
 
 Software metrics provide a means to extract useful and measurable information about the structure of a software system. Since software artifacts consist of digital data, many of their aspects can be easily measured. This is exemplified by the early appearance of metrics like {\sc loc} (Lines of Code) and {\sc cloc} (Comment Lines of Code). Over the years, a wealth of different metrics have appeared in the literature. In addition, many of them, such as Chidamber and Kemerer's~\cite{CHKE94} and the metrics presented by Lorenz et al.~\cite{LOKI94} can be automatically calculated by static analysis tools.
 
-In this paper, we present a dataset that contains popular metrics, calculated from the analysis of a large collection of Java projects.
-All projects were taken from the {\it Maven Central Repository}~\cite{MAVEN}. Maven is a build automation tool used mostly for Java projects. To build a software component, it dynamically downloads Java libraries and Maven plug-ins from the Maven central repository, and stores them in a local cache. The repository can be updated with new projects and also with new versions of existing projects that can depend on other versions. Note that this repository has been previously analyzed by researchers to produce relevant datasets as we discuss in Section~\ref{sec:rel}. To analyze the projects coming from this repository, we used the following tools: a) {\sc ckjm} \cite{Spi05g}, b) {\sc jd}epend~\cite{JDEPEND}, and c) {\sc clmt}~\cite{SGKL09}. All tools focus on three main aspects of a software system, namely: object-oriented design, program size, and package design.
+In this paper, we present a dataset that contains popular metrics, calculated from the analysis of a large collection of Java projects. All projects were taken from the {\it Maven Central Repository}~\cite{MAVEN}. Maven is a build automation tool used mostly for Java projects. To build a software component, it dynamically downloads Java libraries and Maven plug-ins from the Maven central repository, and stores them in a local cache. The repository can be updated with new projects and also with new versions of existing projects that can depend on other versions. Note that this repository has been previously analyzed by researchers to produce relevant datasets as we discuss in Section~\ref{sec:rel}. To analyze the projects coming from this repository, we used the following tools: a) {\sc ckjm} \cite{Spi05g}, b) {\sc jd}epend~\cite{JDEPEND}, and c) {\sc clmt}~\cite{SGKL09}. All tools focus on three main aspects of a software system, namely: object-oriented design, program size, and package design.
 
-% dimitro@bkarak: say *WHY* these are important metrics. Say something like: "These metrics are important for developers and / or developers because [...]" Provide an example and a reference to show how they saved the universe.
-
-In this paper we present: a) the construction process to
-obtain the collection of the metrics results that the three aforementioned tools produced for {\bf (dimitro@bkarak: put the number of {\sc jar}s here)} {\sc jar}s, b) our dataset and c) how researchers and practitioners can use the dataset and produce meaningful results.
-
-% The rest of the paper is structured as follows; first, the dataset construction process is presented and analysed. Then we analyse the schema of the database. Along with the dataset limitations, we present examples and ideas of basic experimentation with the measurements.
+In this paper we present: a) the construction process to obtain the collection of the metrics results that the three aforementioned tools produced for {\bf 22730 {\sc jar}s, b) our dataset and c) how researchers and practitioners can use the dataset and produce meaningful results.
 
 \section{Dataset Construction Process}
 \label{sec:data}
 
-% Maven is a build automation tool used primarily for Java projects, and it is hosted by the Apache Software Foundation~\cite{MAVEN}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as basis. These languages include Java, Clojure, Groovy, and Scala.
-
-% dimitro@bkarak: *Major Concern*: You are not "selling" this right. These are bullets. You need to show that we put some effort to extract the results. Recall our previous data paper. You only mention the data cleaning part here. What happened when you got the JARs you wanted? You run the three tools? *How*? You need to show it. How did you automate this? The whole procedure. Something like the following: "Once we had the list with the project versions we run the above tools for 4000050 days by using a heavy metal script on one trillion machines."
-
-The dataset construction process is illustrated in Figure~\cite{}.
+Maven is a build automation tool used primarily for Java projects, and it is hosted by the Apache Software Foundation~\cite{MAVEN}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as basis. These languages include Java, Clojure, Groovy, and Scala.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{import-process}
-\caption{}
+\caption{The dataset construction process}
+\label{fig:dataset-construction}
 \end{figure}
 
-Initially, a snapshot of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project.
+The dataset construction process is illustrated in Figure~\ref{fig:dataset-construction}. Initially, a snapshot of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project. All versions were filtered out and only the latest was kept. Each project consists of two {\sc jar} files, one that contains a compiled version of the project and one with the source code. The
 
-All versions were filtered out and only the latest was kept. For each version in the Maven repository, each binary {\sc jar} file is accompanied by another {\sc jar}, which contains the source code. Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 11,365 projects, with more than 110 million lines of code. Overall the dataset contains almost 33 million unique measurements.
+Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 11,365 projects, with more than 110 million lines of code. Overall the dataset contains almost 33 million unique measurements.
 
 \begin{table}
 \centering
@@ -193,9 +184,7 @@ Figure~\ref{fig:database-schema} illustrates the database schema. The data were 
 
 Metrics are divided into six categories that defined its scope; \textit{module}, \textit{class}, \textit{method}, \textit{code unit}, and \textit{project-wide}. These values are stored in \textit{category} table.
 
-The descriptive names for each metric are stored in the \textit{measurement\_type} table.
-% dimitro@bkarak: this is not the right way to reference tables. Which table is it? 5? 6? Same below.
-There are 65 metrics available in the dataset. The names are composed by the actual metric name and the tool that was used to calculate them e.g. \textit{McCabe\_clmt} denotes that the metric name is the McCabe cyclomatic complexity from the {\sc clmt} tool, while \textit{McCabe\_ckjm} means that it is the same metric calculated by the {\sc ckjm} tool.
+The descriptive names for each metric are stored in the \textit{measurement\_type} database table. There are 65 metrics available in the dataset. The names are composed by the actual metric name and the tool that was used to calculate them e.g. \textit{McCabe\_clmt} denotes that the metric name is the McCabe cyclomatic complexity from the {\sc clmt} tool, while \textit{McCabe\_ckjm} means that it is the same metric calculated by the {\sc ckjm} tool.
 
 Filenames, method, class and package names along with other identifiers are stored in the \textit{identifiers} table. Note that each measurement has a related filename and a related identifier that points to the software element that is related e.g. the \textit{afferent coupling} metric for the module in the directory ``com/scalagent/jmx'' is related with the identifier \textit{com.scalagent.jmx}.
 
