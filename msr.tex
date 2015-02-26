@@ -79,7 +79,7 @@ Maven is a build automation tool used primarily for Java projects, and it is mai
 
 \begin{figure*}
 \centering
-\includegraphics[scale=0.7]{import-process}
+\includegraphics[scale=0.6]{import-process}
 \caption{The dataset construction process}
 \label{fig:dataset-construction}
 \end{figure*}
@@ -198,7 +198,7 @@ Finally, the database table \textit{project} contains the related project identi
 
 \begin{figure*}
 \centering
-\includegraphics[scale=0.7]{database-schema}
+\includegraphics[scale=0.6]{database-schema}
 \caption{The database schema}
 \label{fig:database-schema}
 \end{figure*}
@@ -206,14 +206,16 @@ Finally, the database table \textit{project} contains the related project identi
 \section{Research Opportunities}
 \label{sec:research-opportunities}
 
-The measurements provided by this dataset, can be exploited in many
+The measurements provided by this dataset, can be used both by researchers and practictioners to validate their ideas. Researchers can use the data to experiment with new quality models, or just validate them in real projects. Practitioners who develop several tools that calculate metrics that already exist in this dataset, can use it to validate that their tools work correctly.
+
+In addition, this dataset can be used side-by-side with the ones presented by Mitropoulos et al.~\cite{HP04} and Raemaekers et al.~\cite{RDV13} in order to examine the datasets for correlations.
 
 \section{Experimenting with the Dataset}
 \label{sec:dsl}
 
-Along with the
+As aforementioned in the previous sections,
 
-The methodology was the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used. If a package is detected in the source code, then the project will be tagged that it uses one (1) {\sc dsl}. Consequently, if a project has {\sc dsl} count four (4), then it means that four (4) different application libraries were detected during the source code scan. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that all these libraries are included as part of the Java {\sc sdk}.
+The methodology was the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used. If a package is detected in the source code, then the project will be tagged that it uses one (1) {\sc dsl}. Consequently, if a project has {\sc dsl} count four (4), then it means that four different application libraries were detected during the source code scan. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that all these libraries are included as part of the Java {\sc sdk}.
 
 \begin{table}
 \centering
