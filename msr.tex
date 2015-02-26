@@ -197,16 +197,15 @@ Finally the table \textit{project} contains the related project identifiers, ext
 \label{fig:database-schema}
 \end{figure*}
 
+\section{Research Opportunities}
+\label{sec:research-opportunities}
+
+
+
 \section{Experimenting with the Dataset}
 \label{sec:dsl}
 
-The Java platform exists for more than a decade and provides a development environment for several application areas, such as the web, grid computing, and traditional client-server applications.
-% dimitro@bkarak: references here.
-The official development environment of the Java platform is released by Oracle and is widely-known as the Java Standard Edition {\sc sdk}.
 
-% dimitro@bkarak: I cannot see the connection of the above paragraph with the following.
-
-By using the dataset, one small problem that needs to be examined, is to measure the adoption of {\sc dsl}s in software projects. In addition, the average number of {\sc dsl}s usually used in a software project needs to be investigated.
 
 The methodology was the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used. If a package is detected in the source code, then the project will be tagged that it uses one (1) {\sc dsl}. Consequently, if a project has {\sc dsl} count four (4), then it means that four (4) different application libraries were detected during the source code scan. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that all these libraries are included as part of the Java {\sc sdk}.
 
