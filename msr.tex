@@ -85,10 +85,17 @@ obtain the collection of the metrics results that the three aforementioned tools
 
 % dimitro@bkarak: *Major Concern*: You are not "selling" this right. These are bullets. You need to show that we put some effort to extract the results. Recall our previous data paper. You only mention the data cleaning part here. What happened when you got the JARs you wanted? You run the three tools? *How*? You need to show it. How did you automate this? The whole procedure. Something like the following: "Once we had the list with the project versions we run the above tools for 4000050 days by using a heavy metal script on one trillion machines."
 
-Initially, a snapshot (January 2012) of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project.
+The dataset construction process is illustrated in Figure~\cite{}.
 
-All versions were filtered out and only the latest was kept. For each version in the Maven repository, each binary {\sc jar} file is accompanied by another {\sc jar}, which contains the source code. Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 12,959 projects, % dimitro@bkarak: this is a different number from the one at the table.
-with more than 110 million lines of code. Overall the dataset contains almost 33 million unique measurements.
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{import-process}
+\caption{}
+\end{figure}
+
+Initially, a snapshot of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project.
+
+All versions were filtered out and only the latest was kept. For each version in the Maven repository, each binary {\sc jar} file is accompanied by another {\sc jar}, which contains the source code. Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 11,365 projects, with more than 110 million lines of code. Overall the dataset contains almost 33 million unique measurements.
 
 \begin{table}
 \centering
