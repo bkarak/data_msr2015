@@ -70,7 +70,7 @@ Software metrics provide a means to extract useful and measurable information ab
 
 In this paper, we present a dataset that contains popular metrics, calculated from the analysis of a large collection of Java projects. All projects were taken from the {\it Maven Central Repository}~\cite{MAVEN}. Maven is a build automation tool used mostly for Java projects. To build a software component, it dynamically downloads Java libraries and Maven plug-ins from the Maven central repository, and stores them in a local cache. The repository can be updated with new projects and also with new versions of existing projects that can depend on other versions. Note that this repository has been previously analyzed by researchers to produce relevant datasets as we discuss in Section~\ref{sec:rel}. To analyze the projects coming from this repository, we used the following tools: a) {\sc ckjm} \cite{Spi05g}, b) {\sc jd}epend~\cite{JDEPEND}, and c) {\sc clmt}~\cite{SGKL09}. All tools focus on three main aspects of a software system, namely: object-oriented design, program size, and package design.
 
-In this paper we present: a) the construction process to obtain the collection of the metrics results that the three aforementioned tools produced for {\bf 22730 {\sc jar}s, b) our dataset and c) how researchers and practitioners can use the dataset and produce meaningful results.
+In this paper we present: a) the construction process to obtain the collection of the metrics results that the three aforementioned tools produced for {\bf 22730} {\sc jar}s, b) our dataset and c) how researchers and practitioners can use the dataset and produce meaningful results.
 
 \section{Dataset Construction Process}
 \label{sec:data}
@@ -84,7 +84,7 @@ Maven is a build automation tool used primarily for Java projects, and it is hos
 \label{fig:dataset-construction}
 \end{figure}
 
-The dataset construction process is illustrated in Figure~\ref{fig:dataset-construction}. Initially, a snapshot of the Maven repository was downloaded locally. The repository contains various projects and their releases. A project version can be uniquely identified by the following triplet: {\it group id}, {\it artifact id} and {\it version}. The Maven repository contains several versions of each project. All versions were filtered out and only the latest was kept. Each project consists of two {\sc jar} files, one that contains a compiled version of the project and one with the source code. The
+The dataset construction process is illustrated in Figure~\ref{fig:dataset-construction}. Initially, a snapshot of the Maven repository was downloaded locally. The repository contains various projects and their releases. We identified only the Java projects. The repository contains several versions of each project. All versions were filtered out and only the latest was kept. Each project consists of two {\sc jar} files, one that contains a compiled version of the project and one with the source code. We
 
 Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 11,365 projects, with more than 110 million lines of code. Overall the dataset contains almost 33 million unique measurements.
 
