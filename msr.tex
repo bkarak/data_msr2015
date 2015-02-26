@@ -66,7 +66,7 @@
 \section{Introduction}
 \label{sec:intro}
 
-Software metrics provide a means to extract useful and measurable information about the structure of a software system. Since software artifacts consist of digital data, many of their aspects can be easily measured. This is exemplified by the early appearance of metrics like {\sc loc} (Lines of Code) and {\sc cloc} (Comment Lines of Code). Over the years, a wealth of different metrics have appeared in the literature. In addition, many of them, such as Chidamber and Kemerer's~\cite{CHKE94} and the metrics presented by Lorenz et al.~\cite{LOKI94} can be automatically calculated by static analysis tools.
+Software metrics provide a means to extract useful and measurable information about the structure of a software system. Software development artifacts consist of digital data, many of their aspects can be easily measured. This is exemplified by the early appearance of metrics like {\sc loc} (Lines of Code) and {\sc cloc} (Comment Lines of Code). Over the years, a wealth of different metrics have appeared in the literature. Many of them, such as Chidamber and Kemerer's~\cite{CHKE94} and the metrics presented by Lorenz et al.~\cite{LOKI94} can be automatically calculated by static analysis tools.
 
 In this paper, we present a dataset that contains popular metrics, calculated from the analysis of a large collection of Java projects. All projects were taken from the {\it Maven Central Repository}~\cite{MAVEN}. Maven is a build automation tool used mostly for Java projects. To build a software component, it dynamically downloads Java libraries and Maven plug-ins from the Maven central repository, and stores them in a local cache. The repository can be updated with new projects and also with new versions of existing projects that can depend on other versions. Note that this repository has been previously analyzed by researchers to produce relevant datasets as we discuss in Section~\ref{sec:rel}. To analyze the projects coming from this repository, we used the following tools: a) {\sc ckjm} \cite{Spi05g}, b) {\sc jd}epend~\cite{JDEPEND}, and c) {\sc clmt}~\cite{SGKL09}. All tools focus on three main aspects of a software system, namely: object-oriented design, program size, and package design.
 
@@ -75,16 +75,18 @@ In this paper we present: a) the construction process to obtain the collection o
 \section{Dataset Construction Process}
 \label{sec:data}
 
-Maven is a build automation tool used primarily for Java projects, and it is hosted by the Apache Software Foundation~\cite{MAVEN}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as basis. These languages include Java, Clojure, Groovy, and Scala.
+Maven is a build automation tool used primarily for Java projects, and it is maintained by the Apache Software Foundation~\cite{MAVEN}. To describe the software project being built, its dependencies on other libraries, and the build order Maven uses {\sc xml}. The central repository contains more than 400,000 {\sc jar}s, in a variety of languages that are all using the {\sc jvm} platform as their runtime environment. These languages include Java, Clojure, Groovy, and Scala.
 
-\begin{figure}
+\begin{figure*}
 \centering
-\includegraphics[scale=0.5]{import-process}
+\includegraphics[scale=0.7]{import-process}
 \caption{The dataset construction process}
 \label{fig:dataset-construction}
-\end{figure}
+\end{figure*}
 
-The dataset construction process is illustrated in Figure~\ref{fig:dataset-construction}. Initially, a snapshot of the Maven repository was downloaded locally. The repository contains various projects and their releases. We identified only the Java projects. The repository contains several versions of each project. All versions were filtered out and only the latest was kept. Each project consists of two {\sc jar} files, one that contains a compiled version of the project and one with the source code. We
+The dataset construction process is illustrated in Figure~\ref{fig:dataset-construction}. Initially, a snapshot of the Maven repository was downloaded locally. The repository contains various projects and their releases. We identified only the Java projects. The repository contains several versions of each project. All versions were filtered out and only the latest was kept. Each project consists of two {\sc jar} files, one that contains a compiled version of the project and one with the source code. The projects that did not had both binary and source jars, were excluded from the experiment.
+
+When the selection process was finished, the {\sc jars} were downloaded from the central repository and with the help of a queue, delivered into a series of workers, which executed the tools and provided a series of measurements stored in {\sc json} form. The result files were validated by scripts and then the data were imported in a MySQL database.
 
 Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the final version corpus. It included 11,365 projects, with more than 110 million lines of code. Overall the dataset contains almost 33 million unique measurements.
 
@@ -110,7 +112,7 @@ Measurement Count & 32,844,836\\
 \end{tabular}
 \end{table}
 
-Table~\ref{tbl:selected-metrics} presents the key metrics that are calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on package design, while \textit{clmt} focuses on program size metrics. Several metrics are calculated by more than one tools in this dataset, like \textit{cyclomatic complexity}, which is calculated by both \textit{clmt} and \textit{ckjm}. Both calculation are stored and provided by the dataset.Three tools were selected.
+Three tools were selected to calculate the measurements.
 
 \begin{itemize}
   \item \textbf{CKJM-ext} \textit{(ckjm)}~\cite{Spi05g} is an open source tool that was developed by Diomidis Spinellis and then extended by Marian Jureczko. It calculates many software complexity metrics, including the \textit{Chidamber and Kemmerer} set of object-oriented metrics \cite{CHKE94}. The version of the tool that we used for this experiment can be found in github~\cite{CKJM}.
@@ -119,6 +121,10 @@ Table~\ref{tbl:selected-metrics} presents the key metrics that are calculated an
 
   \item \textbf{CLMT} \textit{(clmt)}~\cite{SGKL09} stands for \textit{cross-language metric tool} and analyses the source code of several languages in order to calculate a series of size metrics.
 \end{itemize}
+
+Table~\ref{tbl:selected-metrics} presents the key metrics that are calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on package design, while \textit{clmt} focuses on program size metrics. Several metrics are calculated by more than one tool, like \textit{cyclomatic complexity}, which is calculated by both \textit{clmt} and \textit{ckjm}. Both calculations are available in the database.
+
+A series of secondary metrics are also stored in the database. For example, a set of metrics that count the usage of specific {\sc dsl} application libraries in a software project. These are not included in the Table~\ref{tbl:selected-metrics}, since they are not commonly accepted. In Section~\ref{sec:dsl}, we describe a small experiment based on these metrics that measures the popularity of {\sc dsl} usage for the dataset anf therefore for the Java ecosystem in general.
 
 \begin{table}
 \centering
@@ -180,15 +186,15 @@ File Count & \textit{clmt}\\
 \section{Database Structure}
 \label{sec:db}
 
-Figure~\ref{fig:database-schema} illustrates the database schema. The data were stored in a straightforward manner. The database schema consists of five tables; \textit{measurement}, \textit{category}, \textit{identifiers}, \textit{measurement\_type}, and \textit{project}. The central table is \textit{measurement}, which holds the actual measurement values. The other tables are used as normalization tables.
+Figure~\ref{fig:database-schema} illustrates the database schema. It consists of five tables; \textit{measurement}, \textit{category}, \textit{identifiers}, \textit{measurement\_type}, and \textit{project}. The central database table is \textit{measurement}, which holds the measurement values. The other tables are used for normalization.
 
-Metrics are divided into six categories that defined its scope; \textit{module}, \textit{class}, \textit{method}, \textit{code unit}, and \textit{project-wide}. These values are stored in \textit{category} table.
+Metrics are divided into six categories that define their scope; \textit{module}, \textit{class}, \textit{method}, \textit{code unit}, and \textit{project-wide}. These values are stored in \textit{category} database table.
 
-The descriptive names for each metric are stored in the \textit{measurement\_type} database table. There are 65 metrics available in the dataset. The names are composed by the actual metric name and the tool that was used to calculate them e.g. \textit{McCabe\_clmt} denotes that the metric name is the McCabe cyclomatic complexity from the {\sc clmt} tool, while \textit{McCabe\_ckjm} means that it is the same metric calculated by the {\sc ckjm} tool.
+The descriptive names for each metric are stored in the \textit{measurement\_type} database table. There are 65 metrics available in the dataset. The names are composed by the actual metric name and the tool that was used to calculate them e.g. \textit{McCabe\_clmt} denotes that the metric name is the McCabe cyclomatic complexity from the \textit{clmt} tool, while \textit{McCabe\_ckjm} means that it is the same metric calculated by the \textit{ckjm} tool.
 
-Filenames, method, class and package names along with other identifiers are stored in the \textit{identifiers} table. Note that each measurement has a related filename and a related identifier that points to the software element that is related e.g. the \textit{afferent coupling} metric for the module in the directory ``com/scalagent/jmx'' is related with the identifier \textit{com.scalagent.jmx}.
+Filenames, methods, classes and package names along with other identifiers are stored in the \textit{identifiers} table. Note that each measurement has a related filename and a related identifier that points to a software element e.g. the \textit{afferent coupling} metric for the module in the directory ``com/scalagent/jmx'' is related with the identifier \textit{com.scalagent.jmx}.
 
-Finally the table \textit{project} contains the related project identifiers, extracted from the maven repository.
+Finally, the database table \textit{project} contains the related project identifiers, extracted from the maven repository.
 
 \begin{figure*}
 \centering
@@ -200,12 +206,12 @@ Finally the table \textit{project} contains the related project identifiers, ext
 \section{Research Opportunities}
 \label{sec:research-opportunities}
 
-
+The measurements provided by this dataset, can be exploited in many
 
 \section{Experimenting with the Dataset}
 \label{sec:dsl}
 
-
+Along with the
 
 The methodology was the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used. If a package is detected in the source code, then the project will be tagged that it uses one (1) {\sc dsl}. Consequently, if a project has {\sc dsl} count four (4), then it means that four (4) different application libraries were detected during the source code scan. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that all these libraries are included as part of the Java {\sc sdk}.
 
