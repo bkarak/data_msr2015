@@ -88,7 +88,7 @@ In this paper we present: a) the construction process to obtain the collection o
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{import-process}
+\includegraphics[scale=0.45]{import-process}
 \caption{The dataset construction process}
 \label{fig:dataset-construction}
 \end{figure}
@@ -130,11 +130,9 @@ Measurement Count & 32,844,836\\
 
 Table \ref{tbl:oss-size-metrics} presents several size metrics for our dataset. It includes 11,365 projects, with more than 74 million lines of code and almost 33 million unique measurements.
 
-Table~\ref{tbl:selected-metrics} presents the key metrics that were calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on package design, while \textit{clmt} focuses on program size metrics. Several metrics are calculated by more than one tool, like \textit{cyclomatic complexity}, which is calculated by both \textit{clmt} and \textit{ckjm}. Both calculations are available in the database.
+Table~\ref{tbl:class-selected-metrics}, \ref{tbl:method-selected-metrics}, \ref{tbl:package-selected-metrics}, and \ref{tbl:size-selected-metrics} present the key metrics that are calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on package design, while \textit{clmt} focuses on program size metrics. Several metrics are calculated by more than one tool, like \textit{cyclomatic complexity}, which is calculated by both \textit{clmt} and \textit{ckjm}. Both calculations are available in the database.
 
-A series of newly introduced metrics were also stored in the database that count the usage of specific {\sc dsl} application libraries in a software project. These are included in the Table~\ref{tbl:selected-metrics} as \textit{DSL Usage Count}.
-
-The methodology to identify and calculate the {\sc dsl} metrics was the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used in the project. Build files or other resources that may contain {\sc dsl}s were not included. One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that we focused on libraries that were  included as part of the Java {\sc sdk}.
+A series of newly introduced metrics were also stored in the database that count the usage of specific {\sc dsl} application libraries in a software project. These are included in the Table~\ref{tbl:size-selected-metrics}. The methodology to identify and calculate the {\sc dsl} metrics is the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used in the project. Build files or other resources that may contain {\sc dsl}s were not included. One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that we focused on libraries that were  included as part of the Java {\sc sdk}.
 
 \begin{table}
 \centering
@@ -159,8 +157,8 @@ In Section~\ref{sec:dsl}, we describe an experiment based on these metrics that 
 
 \begin{table}
 \centering
-\caption{Key Metrics}
-\label{tbl:selected-metrics}
+\caption{Class Design Metrics}
+\label{tbl:class-selected-metrics}
 \begin{tabular}{l l}
  \hline
 \multicolumn{2}{l}{\textit{\textbf{Class Design}}}\\
@@ -183,12 +181,30 @@ Measure Of Functional Abstraction & \textit{ckjm}\\
 Number of Attributes & \textit{clmt}\\
 Method Hiding Factor & \textit{clmt}\\
 \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Method Design Metrics}
+\label{tbl:method-selected-metrics}
+\begin{tabular}{l l}
+ \hline
 \multicolumn{2}{l}{\textit{\textbf{Method Design}}}\\
 \hline
 Number of Method Parameters & \textit{clmt}\\
 Number of Methods & \textit{clmt, ckjm}\\
 McCabe Cyclomatic Complexity & \textit{ckjm, clmt}\\
 \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Method Design Metrics}
+\label{tbl:package-selected-metrics}
+\begin{tabular}{l l}
+ \hline
 \multicolumn{2}{l}{\textit{\textbf{Package Design}}}\\
 \hline
 Number of Concrete Classes & \textit{jdep}\\
@@ -198,6 +214,15 @@ Instability & \textit{jdep}\\
 Abstractness & \textit{jdep}\\
 Distance Main Sequence & \textit{jdep}\\
 \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Program Size Metrics}
+\label{tbl:size-selected-metrics}
+\begin{tabular}{l l}
+ \hline
 \multicolumn{2}{l}{\textit{\textbf{Program Size Metrics}}}\\
 \hline
 Number of Classes & \textit{clmt, ckjm, jdep}\\
@@ -209,6 +234,13 @@ Lines Of Code & \textit{clmt, ckjm}\\
 Source Lines Of Code & \textit{clmt}\\
 Function Oriented Code & \textit{clmt}\\
 DSL Usage Count & \textit{clmt}\\
+RTF Usage Count & \textit{clmt}\\
+Regex Usage Count & \textit{clmt}\\
+HTML Usage Count & \textit{clmt}\\
+XPath Usage Count & \textit{clmt}\\
+XSLT Usage Count & \textit{clmt}\\
+XML Usage Count & \textit{clmt}\\
+SQL Usage Count & \textit{clmt}\\
 File Count & \textit{clmt}\\
 \hline
 \end{tabular}
@@ -229,7 +261,7 @@ Finally, the database table \textit{project} contains the related project identi
 
 \begin{figure*}
 \centering
-\includegraphics[scale=0.6]{database-schema}
+\includegraphics[scale=0.5]{database-schema}
 \caption{The database schema}
 \label{fig:database-schema}
 \end{figure*}
@@ -239,15 +271,12 @@ Finally, the database table \textit{project} contains the related project identi
 
 The measurements provided by this dataset, can be used both by researchers and practitioners to validate their ideas. Researchers can use the data to experiment with new quality models, or just validate them in real projects. Practitioners who develop tools that calculate metrics can use the dataset to validate if their tools work correctly.
 
-The dataset includes the {\sc dsl}-related metrics, which quantifies the usage of basic {\sc dsl} application libraries that are already shipped with the Java {\sc sdk}. These kind of metrics, can be really usefull for researchers that focus on {\sc dsl} embedding, or study {\sc dsl} usage patterns \cite{KARA14}.
+The dataset includes the {\sc dsl}-related metrics, which quantifies the usage of basic {\sc dsl} application libraries that are already shipped with the Java {\sc sdk}. These kind of metrics, can be really useful for researchers that focus on {\sc dsl} embedding, or study {\sc dsl} usage patterns \cite{KARA14}.
 
 In addition, this dataset can be used side-by-side with the ones presented by Mitropoulos et al.~\cite{HP04} and Raemaekers et al.~\cite{RDV13} in order to examine the datasets for metric correlations.
 
 \section{Experimenting with the Dataset}
 \label{sec:dsl}
-
-The initial goal of this experiment was to provide quantifiable results that are indicative regarding the usage of each {\sc dsl} for the Java ecosystem. The related metrics can be found in the database table named \textit{measuremnt\_type}, these are: \textit{RTFUsage\_clmt}, \textit{RegexUsage\_clmt},
-\textit{HTMLUsage\_clmt}, \textit{HTMLUsage\_clmt}, \textit{XPathUsage\_clmt}, \textit{XSLTUsage\_clmt}, \textit{XMLUsage\_clmt}, \textit{SQLUsage\_clmt}, and \textit{DSLCount\_clmt}. With a python script that analyses the measurements stored in the database, we produced Table~\ref{tbl:dsl-top-usage}, which lists popular {\sc dsl} usage combinations for the dataset. We see that {\sc xml} is the big winner with 1561 occurrences in 11365 projects (13\%). Regular expressions are second most popular with 909 occurrences (7\%). Note that these number represents the projects that {\sc xml} and regular expressions were used a sole {\sc dsl}s.
 
 \begin{table}
 \centering
@@ -269,17 +298,12 @@ Regex, SQL, XML, XSLT & 80\\
 Regex, SQL, XML & 71\\
 SQL, XML, XSLT & 54\\
 XML, XPath & 50\\
-XML, XPath, XSLT & 39\\
-Regex, XML, XPath, XSLT & 38\\
-HTML & 23\\
-Regex, XML, XPath & 20\\
-Regex, SQL, XML, XPath, XSLT & 18\\
-SQL, XML, XPath, XSLT & 11\\
-HTML, Regex, XML & 10\\
-HTML, XML & 10\\
 \hline
 \end{tabular}
 \end{table}
+
+The initial goal of this experiment was to provide quantifiable results that are indicative regarding the usage of each {\sc dsl} for the Java ecosystem. The related metrics can be found in the database table named \textit{measuremnt\_type}, these are: \textit{RTFUsage\_clmt}, \textit{RegexUsage\_clmt},
+\textit{HTMLUsage\_clmt}, \textit{HTMLUsage\_clmt}, \textit{XPathUsage\_clmt}, \textit{XSLTUsage\_clmt}, \textit{XMLUsage\_clmt}, \textit{SQLUsage\_clmt}, and \textit{DSLCount\_clmt}. With a python script that analyses the measurements stored in the database, we produced Table~\ref{tbl:dsl-top-usage}, which lists popular {\sc dsl} usage combinations for the dataset. We see that {\sc xml} is the big winner with 1561 occurrences in 11365 projects (13\%). Regular expressions are second most popular with 909 occurrences (7\%). Note that these number represents the projects that {\sc xml} and regular expressions were used as sole {\sc dsl}.
 
 \section{Limitations}
 \label{sec:limit}
