@@ -55,17 +55,17 @@
 \maketitle
 \begin{abstract}
 Examining a large number of software artifacts can provide
-the research community with data regarding quality an design.
+the research community with data regarding quality and design.
 We present a dataset obtained by statically analyzing
 22730 {\sc jar} files taken from the Maven
-central repository ecosystem. For our analysis
+central archive, which is the de-facto application library repository for the Java ecosystem. For our analysis
 we used three popular static analysis tools
 that calculate metrics regarding object-oriented design,
 program size, and package design.
 The dataset contains the metrics results that every tool
 reports for every selected {\sc jar} of the
 ecosystem. Our dataset can be used to produce interesting
-research results, as we show in specific examples.
+research results, such as measure the domain-specific language usage.
 \end{abstract}
 
 \category{D.2.4}{Software Engineering}{Software/Program Verification}[Statistical methods]
@@ -77,14 +77,7 @@ research results, as we show in specific examples.
 \section{Introduction}
 \label{sec:intro}
 
-% gousiosg: This is MSR -> no need of stating the obvious
-% gousiosg: if you want, write a paragraph saying that science needs badly a dataset like the one you offer
-
-%Software metrics provide a means to extract useful and measurable information about the structure of a software system. Software development artifacts consist of digital data, thus many of their aspects can be easily measured. This is exemplified by the early appearance of metrics like {\sc loc} (Lines of Code) and {\sc cloc} (Comment Lines of Code). Over the years, a wealth of different metrics have appeared in the literature. Many of them, such as Chidamber and Kemerer's~\cite{CHKE94} and the metrics presented by Lorenz et al.~\cite{LOKI94} can be automatically calculated by static analysis tools.
-
-We present a dataset that contains popular metrics, calculated from the analysis of a large collection of software artifacts written in Java. All artifacts were taken from the {\it Maven Central Repository}~\cite{MAVEN}.
-Maven is a build automation tool used primarily for Java projects, and it is maintained by the Apache Software Foundation~\cite{MAVEN}. To describe the software project being built, its dependencies, and the build order, Maven uses {\sc xml}. The central repository contains more than 400,000 {\sc jar}s, in a variety of programming languages such as Java, Clojure, Groovy, and Scala. All supported languages use the {\sc jvm} platform as their runtime environment.
-To build a software component, it dynamically downloads Java libraries and Maven plug-ins from the Maven central repository, and stores them in a local cache. The repository can be updated with new projects and also with new versions of existing projects that can depend on other versions.
+We present a dataset that contains popular metrics, calculated from the analysis of a large collection of software artifacts written in Java. All artifacts were taken from the {\it Maven Central Repository}~\cite{MAVEN}. Maven is a build automation tool used primarily for Java projects, and it is maintained by the Apache Software Foundation~\cite{MAVEN}. To describe the software project being built, its dependencies, and the build order, Maven uses {\sc xml}. The central repository contains more than 400,000 {\sc jar}s, in a variety of programming languages such as Java, Clojure, Groovy, and Scala. All supported languages use the {\sc jvm} platform as their runtime environment. To build a software component, it dynamically downloads Java libraries and other plug-ins from the Maven central repository, and stores them in a local cache. The repository can be updated with new projects and also with new versions of existing projects that can depend on other versions.
 
 To analyze the projects coming from Maven repository, we used the following tools: a) {\sc ckjm} \cite{Spi05g}, b) {\sc jd}epend~\cite{JDEPEND}, and c) {\sc clmt}~\cite{SGKL09}. All tools focus on three main aspects of a software system, namely: object-oriented design, program size, and package design.
 
@@ -134,7 +127,7 @@ calculates many software complexity metrics, including the \textit{Chidamber and
 \hline
 Project Count & 11,365\\
 File Count & 449,213\\
-Module Count & 59,436\\
+Package Count & 59,436\\
 Lines of Code & 74,565,772\\
 Source Lines of Code & 40,921,287\\
 Comment Lines of Code & 25,268,959\\
@@ -150,12 +143,28 @@ Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the fin
 
 Table~\ref{tbl:selected-metrics} presents the key metrics that were calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on package design, while \textit{clmt} focuses on program size metrics. Several metrics are calculated by more than one tool, like \textit{cyclomatic complexity}, which is calculated by both \textit{clmt} and \textit{ckjm}. Both calculations are available in the database.
 
-% A series of secondary metrics wesre also stored in the database. For example, a set of metrics that count the usage of specific {\sc dsl} application libraries in a software project. These are not included in the Table~\ref{tbl:selected-metrics}, since they are not commonly accepted.
-% dimitro@bkarak: then why do you mention it?
-% gousiosg: @dimitro: I agree with your comment. However, identifying the
-% DSLs is a worthy contribution. @bkarak: I would rephrase and add a description of
-% how you identified the DSLs. Then also mention this in the research
-% opportunities
+A series of newly introduced metrics were also stored in the database that count the usage of specific {\sc dsl} application libraries in a software project. These are included in the Table~\ref{tbl:selected-metrics} as \textit{DSL Usage Count}.
+
+The methodology to identify and calculate the {\sc dsl} metrics was the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used. If a package is detected in the source code, then the project will be tagged that it uses one (1) {\sc dsl}. Consequently, if a project has {\sc dsl} count four (4), then it means that four different application libraries were detected during the source code scan. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that we focused on libraries that were  included as part of the Java {\sc sdk}.
+
+\begin{table}
+\centering
+\caption{List of selected DSL application libraries}
+\label{tbl:dsl-list}
+\begin{tabular}{l l}
+ \hline
+\textbf{DSL} & \textbf{Java Package}\\
+\hline
+Regular Expressions & \verb|java.util.regex|\\
+XML & \verb|javax.xml|, \verb|org.w3c| and \verb|org.xml|\\
+SQL & \verb|java.sql| and \verb|javax.sql|\\
+XPath & \verb|java.xml.xpath|\\
+XSLT & \verb|javax.xml.transform|\\
+RTF & \verb|javax.swing.text.rtf|\\
+HTML & \verb|javax.swing.text.html|\\
+\hline
+\end{tabular}
+\end{table}
 
 In Section~\ref{sec:dsl}, we describe a small experiment based on these metrics that measures the popularity of {\sc dsl} usage for the dataset and therefore for the Java ecosystem in general.
 
@@ -248,31 +257,6 @@ In addition, this dataset can be used side-by-side with the ones presented by Mi
 
 \section{Experimenting with the Dataset}
 \label{sec:dsl}
-
-As aforementioned in the previous sections,
-
-% dimitro@bkarak: yes what?
-
-The methodology was the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used. If a package is detected in the source code, then the project will be tagged that it uses one (1) {\sc dsl}. Consequently, if a project has {\sc dsl} count four (4), then it means that four different application libraries were detected during the source code scan. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that all these libraries are included as part of the Java {\sc sdk}.
-
-\begin{table}
-\centering
-\caption{List of selected DSL application libraries}
-\label{tbl:dsl-list}
-\begin{tabular}{l l}
- \hline
-\textbf{DSL} & \textbf{Java Package}\\
-\hline
-Regular Expressions & \verb|java.util.regex|\\
-XML & \verb|javax.xml|, \verb|org.w3c| and \verb|org.xml|\\
-SQL & \verb|java.sql| and \verb|javax.sql|\\
-XPath & \verb|java.xml.xpath|\\
-XSLT & \verb|javax.xml.transform|\\
-RTF & \verb|javax.swing.text.rtf|\\
-HTML & \verb|javax.swing.text.html|\\
-\hline
-\end{tabular}
-\end{table}
 
 The initial goal of this experiment was to provide quantifiable results that are indicative regarding the usage of each {\sc dsl}, thus only files containing Java code were taken into account. Build files or other resources that may contain {\sc dsl}s were not included. One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees.
 
