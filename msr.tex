@@ -273,7 +273,7 @@ The measurements provided by this dataset, can be used both by researchers and p
 
 The dataset includes the {\sc dsl}-related metrics, which quantifies the usage of basic {\sc dsl} application libraries that are already shipped with the Java {\sc sdk}. These kind of metrics, can be really useful for researchers that focus on {\sc dsl} embedding, or study {\sc dsl} usage patterns \cite{KARA14}.
 
-In addition, this dataset can be used side-by-side with the ones presented by Mitropoulos et al.~\cite{HP04} and Raemaekers et al.~\cite{RDV13} in order to examine the datasets for metric correlations.
+In addition, this dataset can be used side-by-side with the ones presented by Mitropoulos et al.~\cite{HP04} and Raemaekers et al.~\cite{RDV13} in order to examine the datasets for metric correlations, since these dataset also analysed projects from the Maven repository.
 
 \section{Experimenting with the Dataset}
 \label{sec:dsl}
@@ -303,7 +303,7 @@ XML, XPath & 50\\
 \end{table}
 
 The initial goal of this experiment was to provide quantifiable results that are indicative regarding the usage of each {\sc dsl} for the Java ecosystem. The related metrics can be found in the database table named \textit{measuremnt\_type}, these are: \textit{RTFUsage\_clmt}, \textit{RegexUsage\_clmt},
-\textit{HTMLUsage\_clmt}, \textit{HTMLUsage\_clmt}, \textit{XPathUsage\_clmt}, \textit{XSLTUsage\_clmt}, \textit{XMLUsage\_clmt}, \textit{SQLUsage\_clmt}, and \textit{DSLCount\_clmt}. With a python script that analyses the measurements stored in the database, we produced Table~\ref{tbl:dsl-top-usage}, which lists popular {\sc dsl} usage combinations for the dataset. We see that {\sc xml} is the big winner with 1561 occurrences in 11365 projects (13\%). Regular expressions are second most popular with 909 occurrences (7\%). Note that these number represents the projects that {\sc xml} and regular expressions were used as sole {\sc dsl}.
+\textit{HTMLUsage\_clmt}, \textit{HTMLUsage\_clmt}, \textit{XPathUsage\_clmt}, \textit{XSLTUsage\_clmt}, \textit{XMLUsage\_clmt}, \textit{SQLUsage\_clmt}, and \textit{DSLCount\_clmt}. With a python script that analyses the measurements stored in the database, we produced Table~\ref{tbl:dsl-top-usage}, which lists popular {\sc dsl} usage combinations for the dataset. We see that {\sc xml} is the big winner with 1561 occurrences in 11365 projects (13\%). Regular expressions are second most popular with 909 occurrences (7\%). Note that these number represents the projects that {\sc xml} and regular expressions were used as the only {\sc dsl}.
 
 \section{Limitations}
 \label{sec:limit}
@@ -323,9 +323,8 @@ In reference \cite{MKLGS14}, Mitropoulos et al. also experimented in a similar w
 \label{sec:conc}
 
 This dataset is a source of measurements for a large selection of projects, covering the basic scopes of software design, with metrics covering from program size to object-oriented design. In the future, we plan to keep an updated version of the dataset, by analysing the new additions and updates of the Maven repository.
-%gousiosg: this is like saying that our current selection process is gtp.
-%rephrase
-In addition, our selection process should be more elastic, allowing the participation of projects, that cannot be analysed by all the tools, due to source code unavailability.
+
+Currently, the selection process was strict, filtering out projects that did not have a binary and a source {\sc jar}. In the future, we consider allowing the participation of projects, that cannot be analysed by all the tools, due to source code unavailability. This will allow to expand our project coverage on the Maven repository.
 
 Finally, all versions for each project should also be included, allowing researchers to include the dataset to approaches that focusing on the evolutionary aspect of a software package.
 
