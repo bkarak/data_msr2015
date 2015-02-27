@@ -239,7 +239,10 @@ Finally, the database table \textit{project} contains the related project identi
 \section{Research Opportunities}
 \label{sec:research-opportunities}
 
-The measurements provided by this dataset, can be used both by researchers and practictioners to validate their ideas. Researchers can use the data to experiment with new quality models, or just validate them in real projects. Practitioners who develop several tools that calculate metrics that already exist in this dataset, can use it to validate if their tools work correctly.
+The measurements provided by this dataset, can be used both by researchers and practitioners to validate their ideas. Researchers can use the data to experiment with new quality models, or just validate them in real projects. Practitioners who develop tools that calculate metrics can use the dataset to validate if their tools work correctly.
+
+% gousiosg: A unique selling point is DSLs and people who want to do research with
+% DSL embedding can use it I would add something here.
 
 In addition, this dataset can be used side-by-side with the ones presented by Mitropoulos et al.~\cite{HP04} and Raemaekers et al.~\cite{RDV13} in order to examine the datasets for correlations.
 
@@ -310,7 +313,8 @@ HTML, XML & 10\\
 
 This dataset followed a narrow selection process, identifying and analysing only projects that were written in Java and had the source code and the binary {\sc jar} available in the repository. The latter reduced significantly the number of projects that were analysed, since many of them provided only the binary {\sc jar}. Since only \textit{clmt} analyses the source code, this ended in drastically reduction of measurements that were exposing object-oriented and package design issues.
 
-In addition, only one version was analysed per project. Usually, the latest, which was replaced by a prior version, only if it was violating the aforementioned selection process. This decision rendered the dataset unusable, for research focused on evolutionary changes of a software project.
+In addition, only one version was analysed per project. Usually, the latest, which was replaced by a prior version, only if it was violating the aforementioned selection process. This decision renders the dataset unusable,
+for research focused on software evolution.
 
 \section{Related Work}
 \label{sec:rel}
@@ -322,7 +326,10 @@ In reference \cite{MKLGS14}, Mitropoulos et al. also experimented in a similar w
 \section{Conclusions}
 \label{sec:conc}
 
-This dataset is a source of measurements for a large selection of projects, covering the basic scopes of software design, with metrics covering from program size to object-oriented design. In the future, we plan to keep an updated version of the dataset, by analysing the new additions and updates of the maven repository. In addition, our selection process should be more elastic, allowing the participation of projects, that cannot be analysed by all the tools, due to source code unavailability.
+This dataset is a source of measurements for a large selection of projects, covering the basic scopes of software design, with metrics covering from program size to object-oriented design. In the future, we plan to keep an updated version of the dataset, by analysing the new additions and updates of the Maven repository.
+%gousiosg: this is like saying that our current selection process is gtp.
+%rephrase
+In addition, our selection process should be more elastic, allowing the participation of projects, that cannot be analysed by all the tools, due to source code unavailability.
 
 Finally, all versions for each project should also be included, allowing researchers to include the dataset to approaches that focusing on the evolutionary aspect of a software package.
 
