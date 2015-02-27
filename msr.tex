@@ -36,12 +36,12 @@
 \def\run{\textsuperscript{\dag}}
 
 \author{
-  Vassilios Karakoidas\aueb \and Dimitris Mitropoulos\columbia \and Panos Louridas\aueb \and Georgios Gousios\run \and Diomidis Spinellis\aueb\\
+  Vassilios Karakoidas\aueb \and Dimitris Mitropoulos\columbia \and Georgios Gousios\run \and Diomidis Spinellis\aueb \and Panos Louridas\aueb\\
   \begin{tabular}{c}
    \affaddr{\aueb Dept of Management Science and Technology}\\
    \affaddr{Athens University of Economics and Business}\\
    \affaddr{Athens, Greece}\\
-   \email{\{bkarak,louridas,dds\}@aueb.gr}\\
+   \email{\{bkarak,dds,louridas\}@aueb.gr}\\
   \end{tabular}
   \centering
   \begin{tabular}{cc}
@@ -88,7 +88,7 @@ In this paper we present: a) the construction process to obtain the collection o
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{import-process}
+\includegraphics[scale=0.5]{import-process}
 \caption{The dataset construction process}
 \label{fig:dataset-construction}
 \end{figure}
@@ -247,11 +247,11 @@ In addition, this dataset can be used side-by-side with the ones presented by Mi
 \label{sec:dsl}
 
 The initial goal of this experiment was to provide quantifiable results that are indicative regarding the usage of each {\sc dsl} for the Java ecosystem. The related metrics can be found in the database table named \textit{measuremnt\_type}, these are: \textit{RTFUsage\_clmt}, \textit{RegexUsage\_clmt},
-\textit{HTMLUsage\_clmt}, \textit{HTMLUsage\_clmt}, \textit{XPathUsage\_clmt}, \textit{XSLTUsage\_clmt}, \textit{XMLUsage\_clmt}, \textit{SQLUsage\_clmt}, and \textit{DSLCount\_clmt}. With a python script that analyses the measurements stored in the database, we produced Table~\ref{tbl:dsl-top-usage}, which lists popular {\sc dsl} usage combinations for the dataset. We see that {\sc xml} is the big winner with 1561 occurrences in 11365 projects
+\textit{HTMLUsage\_clmt}, \textit{HTMLUsage\_clmt}, \textit{XPathUsage\_clmt}, \textit{XSLTUsage\_clmt}, \textit{XMLUsage\_clmt}, \textit{SQLUsage\_clmt}, and \textit{DSLCount\_clmt}. With a python script that analyses the measurements stored in the database, we produced Table~\ref{tbl:dsl-top-usage}, which lists popular {\sc dsl} usage combinations for the dataset. We see that {\sc xml} is the big winner with 1561 occurrences in 11365 projects (13\%). Regular expressions are second most popular with 909 occurrences (7\%). Note that these number represents the projects that {\sc xml} and regular expressions were used a sole {\sc dsl}s.
 
 \begin{table}
 \centering
-\caption{Popular DSL Usage Combinations}
+\caption{DSL Usage Combinations Ranking}
 \label{tbl:dsl-top-usage}
 \begin{tabular}{l r}
  \hline
