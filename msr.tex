@@ -138,9 +138,9 @@ Module Count & 59,436\\
 Lines of Code & 74,565,772\\
 Source Lines of Code & 40,921,287\\
 Comment Lines of Code & 25,268,959\\
-Number of Classes & 499,588\\
-Number of Interfaces & 89,145\\
-Number of Enumerations & 12,732\\
+Number of Classes & 370,518\\
+Number of Interfaces & 66,352\\
+Number of Enumerations & 9,879\\
 Measurement Count & 32,844,836\\
 \hline
 \end{tabular}
@@ -150,9 +150,9 @@ Table \ref{tbl:oss-size-metrics} presents several size metrics regarding the fin
 
 Table~\ref{tbl:selected-metrics} presents the key metrics that were calculated and stored in the dataset. Each tool focuses on a different aspect of a software system; \textit{ckjm} focuses on object-oriented design metrics, \textit{jdepend} on package design, while \textit{clmt} focuses on program size metrics. Several metrics are calculated by more than one tool, like \textit{cyclomatic complexity}, which is calculated by both \textit{clmt} and \textit{ckjm}. Both calculations are available in the database.
 
-% A series of secondary metrics wesre also stored in the database. For example, a set of metrics that count the usage of specific {\sc dsl} application libraries in a software project. These are not included in the Table~\ref{tbl:selected-metrics}, since they are not commonly accepted. 
+% A series of secondary metrics wesre also stored in the database. For example, a set of metrics that count the usage of specific {\sc dsl} application libraries in a software project. These are not included in the Table~\ref{tbl:selected-metrics}, since they are not commonly accepted.
 % dimitro@bkarak: then why do you mention it?
-% gousiosg: @dimitro: I agree with your comment. However, identifying the 
+% gousiosg: @dimitro: I agree with your comment. However, identifying the
 % DSLs is a worthy contribution. @bkarak: I would rephrase and add a description of
 % how you identified the DSLs. Then also mention this in the research
 % opportunities
@@ -313,8 +313,7 @@ HTML, XML & 10\\
 
 This dataset followed a narrow selection process, identifying and analysing only projects that were written in Java and had the source code and the binary {\sc jar} available in the repository. The latter reduced significantly the number of projects that were analysed, since many of them provided only the binary {\sc jar}. Since only \textit{clmt} analyses the source code, this ended in drastically reduction of measurements that were exposing object-oriented and package design issues.
 
-In addition, only one version was analysed per project. Usually, the latest, which was replaced by a prior version, only if it was violating the aforementioned selection process. This decision renders the dataset unusable,
-for research focused on software evolution.
+In addition, only one version was analysed per project. Usually, the latest, which was replaced by a prior version, only if it was violating the aforementioned selection process. This decision renders the dataset unusable, for research focused on software evolution.
 
 \section{Related Work}
 \label{sec:rel}
