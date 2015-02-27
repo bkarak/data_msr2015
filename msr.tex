@@ -86,12 +86,12 @@ In this paper we present: a) the construction process to obtain the collection o
 \section{Dataset Construction Process}
 \label{sec:data}
 
-\begin{figure*}
+\begin{figure}
 \centering
 \includegraphics[scale=0.6]{import-process}
 \caption{The dataset construction process}
 \label{fig:dataset-construction}
-\end{figure*}
+\end{figure}
 
 The dataset construction process is illustrated in Figure~\ref{fig:dataset-construction}. In general, it follows the same methodology presented in reference \cite{MKLGS14}. Initially, a snapshot of the Maven repository was downloaded locally. The repository contains various projects that contain several versions. In our experiment, we only used Java projects. For every Java project
 all versions were filtered out and only the latest was kept. The process to identify them was the following; Every project consists of two {\sc jar} files, one that contains a compiled version of the project and one that contains the source code. The projects that did not had both binary and source jars, were excluded from the experiment. When the source {\sc jar} file was downloaded, it was scanned for Java source files. If source files were present in the archive, then the project was flagged as Java project and considered valid.
@@ -134,7 +134,7 @@ Table~\ref{tbl:selected-metrics} presents the key metrics that were calculated a
 
 A series of newly introduced metrics were also stored in the database that count the usage of specific {\sc dsl} application libraries in a software project. These are included in the Table~\ref{tbl:selected-metrics} as \textit{DSL Usage Count}.
 
-The methodology to identify and calculate the {\sc dsl} metrics was the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used in the project. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that we focused on libraries that were  included as part of the Java {\sc sdk}.
+The methodology to identify and calculate the {\sc dsl} metrics was the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements e.g. \textit{java.util.regex}, which indicated that the standard package that implements regular expressions was used, thus regular expressions were used in the project. Build files or other resources that may contain {\sc dsl}s were not included. One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that we focused on libraries that were  included as part of the Java {\sc sdk}.
 
 \begin{table}
 \centering
@@ -225,7 +225,7 @@ The descriptive names for each metric are stored in the \textit{measurement\_typ
 
 Filenames, methods, classes and package names along with other identifiers are stored in the \textit{identifiers} table. Note that each measurement has a related filename and a related identifier that points to a software element e.g. the \textit{afferent coupling} metric for the module in the directory ``com/scalagent/jmx'' is related with the identifier \textit{com.scalagent.jmx}.
 
-Finally, the database table \textit{project} contains the related project identifiers, extracted from the maven repository.
+Finally, the database table \textit{project} contains the related project identifiers, directly extracted from the maven repository.
 
 \begin{figure*}
 \centering
@@ -239,15 +239,15 @@ Finally, the database table \textit{project} contains the related project identi
 
 The measurements provided by this dataset, can be used both by researchers and practitioners to validate their ideas. Researchers can use the data to experiment with new quality models, or just validate them in real projects. Practitioners who develop tools that calculate metrics can use the dataset to validate if their tools work correctly.
 
-% gousiosg: A unique selling point is DSLs and people who want to do research with
-% DSL embedding can use it I would add something here.
+The dataset includes the {\sc dsl}-related metrics, which quantifies the usage of basic {\sc dsl} application libraries that are already shipped with the Java {\sc sdk}. These kind of metrics, can be really usefull for researchers that focus on {\sc dsl} embedding, or study {\sc dsl} usage patterns \cite{KARA14}.
 
-In addition, this dataset can be used side-by-side with the ones presented by Mitropoulos et al.~\cite{HP04} and Raemaekers et al.~\cite{RDV13} in order to examine the datasets for correlations.
+In addition, this dataset can be used side-by-side with the ones presented by Mitropoulos et al.~\cite{HP04} and Raemaekers et al.~\cite{RDV13} in order to examine the datasets for metric correlations.
 
 \section{Experimenting with the Dataset}
 \label{sec:dsl}
 
-The initial goal of this experiment was to provide quantifiable results that are indicative regarding the usage of each {\sc dsl}, thus only files containing Java code were taken into account. Build files or other resources that may contain {\sc dsl}s were not included. One final assumption was also made; if {\sc xpath} or {\sc xslt} were found in the source code, then the project would be marked that it also uses {\sc xml}, since those two languages are used for query and transformations on {\sc xml} {\sc dom} trees.
+The initial goal of this experiment was to provide quantifiable results that are indicative regarding the usage of each {\sc dsl} for the Java ecosystem. The related metrics can be found in the database table named \textit{measuremnt\_type}, these are: \textit{RTFUsage\_clmt}, \textit{RegexUsage\_clmt},
+\textit{HTMLUsage\_clmt}, \textit{HTMLUsage\_clmt}, \textit{XPathUsage\_clmt}, \textit{XSLTUsage\_clmt}, \textit{XMLUsage\_clmt}, \textit{SQLUsage\_clmt}, and \textit{DSLCount\_clmt}. With a python script that analyses the measurements stored in the database, we produced Table~\ref{tbl:dsl-top-usage}, which lists popular {\sc dsl} usage combinations for the dataset. We see that {\sc xml} is the big winner with 1561 occurrences in 11365 projects
 
 \begin{table}
 \centering
