@@ -302,8 +302,8 @@ XML, XPath & 50\\
 \end{tabular}
 \end{table}
 
-The initial goal of this experiment was to provide quantifiable results that are indicative regarding the usage of each {\sc dsl} for the Java ecosystem. The related metrics can be found in the database table named \textit{measuremnt\_type}, these are: \textit{RTFUsage\_clmt}, \textit{RegexUsage\_clmt},
-\textit{HTMLUsage\_clmt}, \textit{HTMLUsage\_clmt}, \textit{XPathUsage\_clmt}, \textit{XSLTUsage\_clmt}, \textit{XMLUsage\_clmt}, \textit{SQLUsage\_clmt}, and \textit{DSLCount\_clmt}. With a python script that analyses the measurements stored in the database, we produced Table~\ref{tbl:dsl-top-usage}, which lists popular {\sc dsl} usage combinations for the dataset. We see that {\sc xml} is the big winner with 1561 occurrences in 11365 projects (13\%). Regular expressions are second most popular with 909 occurrences (7\%). Note that these number represents the projects that {\sc xml} and regular expressions were used as the only {\sc dsl}.
+The initial goal of this experiment was to provide quantifiable results that are indicative regarding the usage of {\sc dsl}s in multiple Java projects. The related metrics can be found in the database table named \textit{measuremnt\_type}, and they are the following: \textit{RTFUsage\_clmt}, \textit{RegexUsage\_clmt},
+\textit{HTMLUsage\_clmt}, \textit{HTMLUsage\_clmt}, \textit{XPathUsage\_clmt}, \textit{XSLTUsage\_clmt}, \textit{XMLUsage\_clmt}, \textit{SQLUsage\_clmt}, and \textit{DSLCount\_clmt}. With a python script that analyses the measurements stored in the database, we produced Table~\ref{tbl:dsl-top-usage}. This table, lists popular {\sc dsl} usage combinations found in our dataset. An interesting observation is that {\sc xml} is the most widespread {\sc dsl} with 1561 occurrences in 11365 projects (13\%). Regular expressions are also popular with 909 occurrences (7\%). Note that the numbers represents the projects where {\sc xml} and regular expressions were used as the only {\sc dsl}.
 
 \section{Limitations}
 \label{sec:limit}
