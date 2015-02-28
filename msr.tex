@@ -58,7 +58,8 @@ Examining a large number of software artifacts can provide
 the research community with data regarding quality and design.
 We present a dataset obtained by statically analyzing
 22730 {\sc jar} files taken from the Maven
-central archive, which is the de-facto application library repository for the Java ecosystem. For our analysis
+central archive, which is the de-facto application library
+repository for the Java ecosystem. For our analysis
 we used three popular static analysis tools
 that calculate metrics regarding object-oriented design,
 program size, and package design.
@@ -198,7 +199,7 @@ McCabe Cyclomatic Complexity & \textit{ckjm, clmt}\\
 
 \begin{table}
 \centering
-\caption{Package Design Metrics}
+\caption{Package Design Metrics.}
 \label{tbl:package-selected-metrics}
 \begin{tabular}{l l}
 \hline
@@ -214,7 +215,7 @@ Distance Main Sequence & \textit{jdep}\\
 
 \begin{table}
 \centering
-\caption{Program Size Metrics}
+\caption{Program Size Metrics.}
 \label{tbl:size-selected-metrics}
 \begin{tabular}{l l}
  \hline
@@ -272,7 +273,7 @@ Finally, our dataset can be used side-by-side with the ones presented by Mitropo
 
 \begin{table}
 \centering
-\caption{Top {\sc dsl} Usage Combinations}
+\caption{Top {\sc dsl} Usage Combinations.}
 \label{tbl:dsl-top-usage}
 \begin{tabular}{l r}
  \hline
@@ -314,11 +315,12 @@ Also, Mitropoulos et al. performed a similar experiment~\cite{MKLGS14}. In parti
 \section{Conclusions}
 \label{sec:conc}
 
-This dataset is a source of measurements for a large selection of projects, covering the basic scopes of software design, with metrics covering from program size to object-oriented design. In the future, we plan to keep an updated version of the dataset, by analysing the new additions and updates of the Maven repository.
+We presented a dataset created by applying three different static analysis tools on Java projects coming from the Maven Central repository. The results invlove a variety of software metrics from program size to object-oriented design.
+%In the future, we plan to keep an updated version of the dataset, by analysing the new additions and updates made in the repository.
+We have also shown how our data can be used to extract meaningful results concerning {\sc dsl} usage in Java Projects.
 
-Currently, the selection process was strict, filtering out projects that did not have a binary and a source {\sc jar}. In the future, we consider allowing the participation of projects, that cannot be analysed by all the tools, due to source code unavailability. This will allow to expand our project coverage on the Maven repository.
-
-Finally, all versions for each project should also be included, allowing researchers to include the dataset to approaches that focusing on the evolutionary aspect of a software package.
+As we discussed, our selection process was strict, filtering out projects that did not have the project's sources. However, we are planning to expand our project coverage in the future and include projects that cannot be analysed by all tools (due to source code unavailability).
+Finally, by including all versions for each project we can allow researchers to use our dataset in the evolution context.
 
 \section{Availability}
 
