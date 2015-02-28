@@ -91,7 +91,7 @@ In this paper we present: a) the construction process to obtain the collection o
 \begin{figure}
 \centering
 \includegraphics[scale=0.45]{import-process}
-\caption{The dataset construction process}
+\caption{The dataset construction process.}
 \label{fig:dataset-construction}
 \end{figure}
 
@@ -111,7 +111,7 @@ When the selection process was finished, we created a series of processing tasks
 
 \begin{table}
 \centering
-\caption{The selected Maven projects' size metrics}
+\caption{The selected Maven projects' size metrics.}
 \label{tbl:oss-size-metrics}
 \begin{tabular}{l r}
  \hline
@@ -137,7 +137,7 @@ A series of newly introduced metrics were also stored in the database. Such metr
 
 \begin{table}
 \centering
-\caption{List of selected DSL application libraries}
+\caption{List of selected {\sc dsl} application libraries.}
 \label{tbl:dsl-list}
 \begin{tabular}{l l}
  \hline
@@ -158,7 +158,7 @@ In Section~\ref{sec:dsl}, we describe an experiment based on these metrics. The 
 
 \begin{table}
 \centering
-\caption{Class Design Metrics}
+\caption{Class Design Metrics.}
 \label{tbl:class-selected-metrics}
 \begin{tabular}{l l}
  \hline
@@ -187,7 +187,7 @@ Method Hiding Factor & \textit{clmt}\\
 
 \begin{table}
 \centering
-\caption{Method Design Metrics}
+\caption{Method Design Metrics.}
 \label{tbl:method-selected-metrics}
 \begin{tabular}{l l}
  \hline
@@ -261,8 +261,8 @@ Finally, the database table \textit{project} contains the related project identi
 
 \begin{figure*}
 \centering
-\includegraphics[scale=0.7]{database-schema}
-\caption{The database schema}
+\includegraphics[scale=0.65]{database-schema}
+\caption{The database schema.}
 \label{fig:database-schema}
 \end{figure*}
 
@@ -280,7 +280,7 @@ Finally, our dataset can be used side-by-side with the ones presented by Mitropo
 
 \begin{table}
 \centering
-\caption{DSL Usage Combinations Ranking}
+\caption{{\sc dsl} Usage Combinations Ranking.}
 \label{tbl:dsl-top-usage}
 \begin{tabular}{l r}
  \hline
@@ -308,16 +308,17 @@ The initial goal of this experiment was to provide quantifiable results that are
 \section{Limitations}
 \label{sec:limit}
 
-This dataset adopted a narrow selection process, identifying and analysing only projects that were written in Java and had both the source code and the binary {\sc jar} available in the repository. The latter reduced significantly the number of projects that were analysed, since many of them provided only the binary {\sc jar}. Since only \textit{clmt} analyses the source code, this ended in drastically reduction of measurements that were exposing object-oriented and package design issues.
+As we mentioned earlier, to produce our dataset we adopted a narrow selection process. In particular, we identified and analyzed only projects that were written in Java and had both the source code and the binary {\sc jar} available in the repository. The latter reduced significantly the number of projects that were analyzed, because many of them provided only the binary {\sc jar}. Since only \textit{clmt} analyses the source code, this resulted in the reduction of the number of measurements that exposed object-oriented and package design issues.
 
-In addition, only one version was analysed per project. Usually, the latest, which was replaced by a prior version, only if it was violating the aforementioned selection process. This decision renders the dataset unusable, for research focused on software evolution.
+Finally, only one version was analyzed per project (the latest, unless it violated the aforementioned restriction).
+This decision renders the dataset unusable, for research focused on software evolution.
 
 \section{Related Work}
 \label{sec:rel}
 
 The Maven ecosystem has been previously analyzed by Raemaekers et al.~\cite{RDV13} to produce the {\it Maven dependency dataset}. Apart from basic information like individual methods, classes, packages and lines of code for every {\sc jar}, this dataset also includes a database with all the connections between the aforementioned elements.
 
-In reference \cite{MKLGS14}, Mitropoulos et al. also experimented in a similar way, by running the FindBugs~\cite{HP04} tool on a large part of the maven repository. Our work differs from these two approaches since it presents the metrics calculated by the three different static analysis tools.
+Also, Mitropoulos et al. performed a similar experiment~\cite{MKLGS14}. In particular, they used the FindBugs~\cite{HP04} static analysis tool, to analyze a large part of the maven repository. Their dataset includes for each {\sc jar}, a corresponding bug collection produced by FindBugs. Our work differs from these two approaches since it presents the metrics calculated by the three different static analysis tools that calculate metrics regarding object-oriented design, program size, and package design.
 
 \section{Conclusions}
 \label{sec:conc}
