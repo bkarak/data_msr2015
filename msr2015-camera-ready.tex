@@ -1,80 +1,4 @@
-%% This style is provided for the ICSE 2015 main conference,
-%% ICSE 2015 co-located events, and ICSE 2015 workshops.
-
-%% bare_conf_ICSE15.tex
-%% V1.4
-%% 2014/05/22
-
-
-%% This is a skeleton file demonstrating the use of IEEEtran.cls
-%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
-%%
-%% Support sites:
-%% http://www.michaelshell.org/tex/ieeetran/
-%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
-%% and
-%% http://www.ieee.org/
-
-%%*************************************************************************
-%% Legal Notice:
-%% This code is offered as-is without any warranty either expressed or
-%% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE!
-%% User assumes all risk.
-%% In no event shall IEEE or any contributor to this code be liable for
-%% any damages or losses, including, but not limited to, incidental,
-%% consequential, or any other damages, resulting from the use or misuse
-%% of any information contained here.
-%%
-%% All comments are the opinions of their respective authors and are not
-%% necessarily endorsed by the IEEE.
-%%
-%% This work is distributed under the LaTeX Project Public License (LPPL)
-%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
-%% distributed and modified. A copy of the LPPL, version 1.3, is included
-%% in the base LaTeX documentation of all distributions of LaTeX released
-%% 2003/12/01 or later.
-%% Retain all contribution notices and credits.
-%% ** Modified files should be clearly indicated as such, including  **
-%% ** renaming them and changing author support contact information. **
-%%
-%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
-%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
-%%*************************************************************************
-
-% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
-% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
-% *** with production work. IEEE's font choices can trigger bugs that do  ***
-% *** not appear when using other class files.                            ***
-% The testflow support page is at:
-% http://www.michaelshell.org/tex/testflow/
-
-
-
-% Note that the a4paper option is mainly intended so that authors in
-% countries using A4 can easily print to A4 and see how their papers will
-% look in print - the typesetting of the document will not typically be
-% affected with changes in paper size (but the bottom and side margins will).
-% Use the testflow package mentioned above to verify correct handling of
-% both paper sizes by the user's LaTeX system.
-%
-% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
-% should be used if it is desired that the figures are to be displayed in
-% draft mode.
-%
 \documentclass[conference]{IEEEtran}
-%
-% If IEEEtran.cls has not been installed into the LaTeX system files,
-% manually specify the path to it like:
-% \documentclass[conference]{../sty/IEEEtran}
-
-
-
-
-
-% Some very useful LaTeX packages include:
-% (uncomment the ones you want to load)
-
 
 % *** MISC UTILITY PACKAGES ***
 %
@@ -332,9 +256,6 @@
 % \url{my_url_here}.
 
 
-
-
-
 % *** Do not adjust lengths that control margins, column widths, etc. ***
 % *** Do not use packages that alter fonts (such as pslatex).         ***
 % There should be no need to do such things with IEEEtran.cls V1.6 and later.
@@ -352,56 +273,19 @@
 % can use linebreaks \\ within to get better formatting as desired
 \title{Generating the Blueprints of the Java Ecosystem}
 
+\author{\IEEEauthorblockN{Vassilios Karakoidas\IEEEauthorrefmark{1},
+Dimitris Mitropoulos\IEEEauthorrefmark{2},
+Georgios Gousios\IEEEauthorrefmark{3},
+Diomidis Spinellis\IEEEauthorrefmark{1} and
+Panagiotis Louridas\IEEEauthorrefmark{1}}
 
-% author names and affiliations
-% use a multiple column layout for up to three different
-% affiliations
-%\author{\IEEEauthorblockN{Michael Shell}
-%\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
-%Georgia Institute of Technology\\
-%Atlanta, Georgia 30332--0250\\
-%Email: http://www.michaelshell.org/contact.html}
-%\and
-%\IEEEauthorblockN{Homer Simpson}
-%\IEEEauthorblockA{Twentieth Century Fox\\
-%Springfield, USA\\
-%Email: homer@thesimpsons.com}
-%\and
-%\IEEEauthorblockN{James Kirk\\ and Montgomery Scott}
-%\IEEEauthorblockA{Starfleet Academy\\
-%San Francisco, California 96678-2391\\
-%Telephone: (800) 555--1212\\
-%Fax: (888) 555--1212}}
-
-% conference papers do not typically use \thanks and this command
-% is locked out in conference mode. If really needed, such as for
-% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
-% after \documentclass
-
-% for over three affiliations, or if they all won't fit within the width
-% of the page, use this alternative format:
-%
-\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
-Homer Simpson\IEEEauthorrefmark{2},
-James Kirk\IEEEauthorrefmark{3},
-Montgomery Scott\IEEEauthorrefmark{3} and
-Eldon Tyrell\IEEEauthorrefmark{4}}
-\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
-Georgia Institute of Technology,
-Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
-\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
-Email: homer@thesimpsons.com}
-\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
-Telephone: (800) 555--1212, Fax: (888) 555--1212}
-\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
-
-
-
+\IEEEauthorblockA{\IEEEauthorrefmark{1}}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}}
+\IEEEauthorblockA{\IEEEauthorrefmark{3}}
+}
 
 % use for special paper notices
 %\IEEEspecialpapernotice{(Invited Paper)}
-
-
 
 
 % make the title area
@@ -431,9 +315,7 @@ research results, such as measure the domain-specific language usage.
 % math in the abstract anyway.
 
 % no keywords
-
-
-
+Java, Software Metrics, Chidamber and Kemerer, Maven
 
 % For peer review papers, you can put extra information on the cover
 % page as needed:
@@ -443,8 +325,7 @@ research results, such as measure the domain-specific language usage.
 %
 % For peerreview papers, this IEEEtran command inserts a page break and
 % creates the second title. It will be ignored for other modes.
-\IEEEpeerreviewmaketitle
-
+%\IEEEpeerreviewmaketitle
 
 \section{Introduction}
 \label{sec:intro}
@@ -481,7 +362,7 @@ When the selection process was finished, we created a series of processing tasks
   \item \textbf{CLMT} \textit{(clmt)}~\cite{SGKL09}; which stands for \textit{cross-language metric tool} and analyses the source code of several languages in order to calculate a series of size metrics.
 \end{itemize}
 
-\begin{table}
+\begin{table}[!t]
 \centering
 \caption{The selected Maven projects' size metrics.}
 \label{tbl:oss-size-metrics}
@@ -507,7 +388,7 @@ Table \ref{tbl:oss-size-metrics} presents several size metrics for our dataset. 
 
 A series of newly introduced metrics were also stored in the database. Such metrics can count the usage of specific {\sc dsl} application libraries in a software project and they are included in the Table~\ref{tbl:size-selected-metrics}. The methodology to identify and calculate the {\sc dsl} metrics was the following: A set of standard {\sc dsl} application libraries was identified, and the source was scanned for specific \textit{import} statements (e.g. \textit{java.util.regex}). These statements indicated that the standard package that implements regular expressions was used, thus regular expressions were used in the project. Build files or other resources that may contain {\sc dsl}s were not included. One final assumption was also made; if {\sc xp}ath or {\sc xslt} were found in the source code, then the project would be marked as a project that utilizes {\sc xml}. This is because both languages are used for query and transformations on {\sc xml} {\sc dom} trees. Table \ref{tbl:dsl-list} lists the selected {\sc dsl}s application libraries. Note that we focused on libraries that were included as part of the Java {\sc sdk}.
 
-\begin{table}
+\begin{table}[!t]
 \centering
 \caption{List of selected {\sc dsl} application libraries.}
 \label{tbl:dsl-list}
@@ -528,7 +409,7 @@ HTML & \verb|javax.swing.text.html|\\
 
 In Section~\ref{sec:dsl}, we describe an experiment based on these metrics. The experiment measures the popularity of {\sc dsl} usage for the dataset and therefore for the Java ecosystem in general.
 
-\begin{table}
+\begin{table}[!t]
 \centering
 \caption{Class Design Metrics.}
 \label{tbl:class-selected-metrics}
@@ -555,7 +436,7 @@ Method Hiding Factor & \textit{clmt}\\
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[!t]
 \centering
 \caption{Method Design Metrics.}
 \label{tbl:method-selected-metrics}
@@ -568,7 +449,7 @@ McCabe Cyclomatic Complexity & \textit{ckjm, clmt}\\
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[!t]
 \centering
 \caption{Package Design Metrics.}
 \label{tbl:package-selected-metrics}
@@ -584,7 +465,7 @@ Distance Main Sequence & \textit{jdep}\\
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[!t]
 \centering
 \caption{Program Size Metrics.}
 \label{tbl:size-selected-metrics}
@@ -642,7 +523,7 @@ Finally, our dataset can be used side-by-side with the ones presented by Mitropo
 \section{Experimenting with the Dataset}
 \label{sec:dsl}
 
-\begin{table}
+\begin{table}[!t]
 \centering
 \caption{Top {\sc dsl} Usage Combinations.}
 \label{tbl:dsl-top-usage}
@@ -697,6 +578,9 @@ Finally, by including all versions for each project we can allow researchers to 
 
 The dataset and the source code of this publication, along with some utility scripts are available at \url{https://github.com/bkarak/data_msr2015}. The {\sc sql} dump of the database is available at \url{http://gaijin.dmst.aueb.gr/~bkarak/data_msr2015.bz2}.
 
+% use section* for acknowledgement
+\section*{Acknowledgment}
+
 %
 %\begin{table}[!t]
 %% increase table row spacing, adjust to taste
@@ -717,21 +601,6 @@ The dataset and the source code of this publication, along with some utility scr
 %\end{tabular}
 %\end{table}
 
-
-% Note that IEEE does not put floats in the very first column - or typically
-% anywhere on the first page for that matter. Also, in-text middle ("here")
-% positioning is not used. Most IEEE journals/conferences use top floats
-% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
-% command of the stfloats package.
-
-
-
-% use section* for acknowledgement
-\section*{Acknowledgment}
-
-
-The authors would like to thank...
 
 
 
