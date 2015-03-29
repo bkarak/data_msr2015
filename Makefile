@@ -1,5 +1,8 @@
 camera-ready:
 	pdflatex msr2015-camera-ready.tex
+	bibtex msr2015-camera-ready
+	pdflatex msr2015-camera-ready.tex
+	pdflatex msr2015-camera-ready.tex
 
 pdf:
 	pdflatex msr.tex
