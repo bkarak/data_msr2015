@@ -352,22 +352,31 @@ When the selection process was finished, we created a series of processing tasks
 \end{itemize}
 
 \begin{table}[!t]
-\centering
 \caption{The selected Maven projects' size metrics.}
 \label{tbl:oss-size-metrics}
-\begin{tabular}{l r}
+\centering
+\begin{tabular}{|l||r|}
  \hline
 \textbf{Metric} & \textbf{Value}\\
 \hline
 Project Count & 11,365\\
+\hline
 File Count & 449,213\\
+\hline
 Package Count & 59,436\\
+\hline
 Lines of Code & 74,565,772\\
+\hline
 Source Lines of Code & 40,921,287\\
+\hline
 Comment Lines of Code & 25,268,959\\
+\hline
 Number of Classes & 370,518\\
+\hline
 Number of Interfaces & 66,352\\
+\hline
 Number of Enumerations & 9,879\\
+\hline
 Measurement Count & 32,844,836\\
 \hline
 \end{tabular}
@@ -381,16 +390,22 @@ A series of newly introduced metrics were also stored in the database. Such metr
 \centering
 \caption{List of selected {\sc dsl} application libraries.}
 \label{tbl:dsl-list}
-\begin{tabular}{l l}
+\begin{tabular}{|l||l|}
  \hline
 \textbf{DSL} & \textbf{Java Package}\\
 \hline
 Regular Expressions & \verb|java.util.regex|\\
+\hline
 XML & \verb|javax.xml|, \verb|org.w3c| and \verb|org.xml|\\
+\hline
 SQL & \verb|java.sql| and \verb|javax.sql|\\
+\hline
 XPath & \verb|java.xml.xpath|\\
+\hline
 XSLT & \verb|javax.xml.transform|\\
+\hline
 RTF & \verb|javax.swing.text.rtf|\\
+\hline
 HTML & \verb|javax.swing.text.html|\\
 \hline
 \end{tabular}
@@ -399,83 +414,122 @@ HTML & \verb|javax.swing.text.html|\\
 In Section~\ref{sec:dsl}, we describe an experiment based on these metrics. The experiment measures the popularity of {\sc dsl} usage for the dataset and therefore for the Java ecosystem in general.
 
 \begin{table}[!t]
-\centering
 \caption{Class Design Metrics.}
 \label{tbl:class-selected-metrics}
-\begin{tabular}{l l}
+\centering
+\begin{tabular}{|l||l|}
 \hline
 Depth Of Inheritance Tree & \textit{ckjm}\\
+\hline
 Coupling Between Objects & \textit{ckjm}\\
+\hline
 Weighted Methods Per Class & \textit{ckjm}\\
+\hline
 Response For Class & \textit{ckjm}\\
+\hline
 Lack Of Cohesion In Methods & \textit{ckjm}\\
+\hline
 Number Of Children & \textit{ckjm}\\
+\hline
 Attribute Hiding Factor & \textit{clmt}\\
+\hline
 Coupling Between Methods & \textit{ckjm}\\
+\hline
 Average Method Complexity & \textit{ckjm}\\
+\hline
 Cohesion Among Methods of Class & \textit{ckjm}\\
+\hline
 Data Access Metric & \textit{ckjm, clmt}\\
+\hline
 Inheritance Coupling & \textit{ckjm}\\
+\hline
 Lack Of Cohesion In Methods3 & \textit{ckjm}\\
+\hline
 Measure Of Aggregation & \textit{ckjm}\\
+\hline
 Measure Of Functional Abstraction & \textit{ckjm}\\
+\hline
 Number of Attributes & \textit{clmt}\\
+\hline
 Method Hiding Factor & \textit{clmt}\\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[!t]
-\centering
 \caption{Method Design Metrics.}
 \label{tbl:method-selected-metrics}
-\begin{tabular}{l l}
+\centering
+\begin{tabular}{|l||l|}
 \hline
 Number of Method Parameters & \textit{clmt}\\
+\hline
 Number of Methods & \textit{clmt, ckjm}\\
+\hline
 McCabe Cyclomatic Complexity & \textit{ckjm, clmt}\\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[!t]
-\centering
 \caption{Package Design Metrics.}
 \label{tbl:package-selected-metrics}
-\begin{tabular}{l l}
+\centering
+\begin{tabular}{|l||l|}
 \hline
 Number of Concrete Classes & \textit{jdep}\\
+\hline
 Afferent Couplings & \textit{jdep, ckjm}\\
+\hline
 Efferent Couplings & \textit{jdep, ckjm}\\
+\hline
 Instability & \textit{jdep}\\
+\hline
 Abstractness & \textit{jdep}\\
+\hline
 Distance Main Sequence & \textit{jdep}\\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[!t]
-\centering
 \caption{Program Size Metrics.}
 \label{tbl:size-selected-metrics}
-\begin{tabular}{l l}
+\centering
+\begin{tabular}{|l||l|}
  \hline
 Number of Classes & \textit{clmt, ckjm, jdep}\\
+\hline
 Number of Enumerations & \textit{clmt, ckjm}\\
+\hline
 Number of Interfaces & \textit{clmt, ckjm}\\
+\hline
 Module Count & \textit{clmt, ckjm}\\
+\hline
 Comments Lines Of Code & \textit{clmt}\\
+\hline
 Lines Of Code & \textit{clmt, ckjm}\\
+\hline
 Source Lines Of Code & \textit{clmt}\\
+\hline
 Function Oriented Code & \textit{clmt}\\
+\hline
 DSL Usage Count & \textit{clmt}\\
+\hline
 RTF Usage Count & \textit{clmt}\\
+\hline
 Regex Usage Count & \textit{clmt}\\
+\hline
 HTML Usage Count & \textit{clmt}\\
+\hline
 XPath Usage Count & \textit{clmt}\\
+\hline
 XSLT Usage Count & \textit{clmt}\\
+\hline
 XML Usage Count & \textit{clmt}\\
+\hline
 SQL Usage Count & \textit{clmt}\\
+\hline
 File Count & \textit{clmt}\\
 \hline
 \end{tabular}
