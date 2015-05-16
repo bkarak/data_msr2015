@@ -10,3 +10,7 @@ This publication was presented in MSR 2015 (data showcase).
 Directory Structure
 ============
 
+- Publication: [pdf](msr-2015.pdf)
+- Poster (A1): [pdf](poster_a1.pdf)
+- Presentation: [pdf](presentation-datashowcase.pdf), [keynote](presentation-datashowcase.key)
+- Dataset: [MySQL dump](http://gaijin.dmst.aueb.gr/~bkarak/data_msr2015.bz2)
