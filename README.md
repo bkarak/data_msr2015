@@ -6,3 +6,7 @@ Examining a large number of software artifacts can provide the research communit
 This publication was presented in MSR 2015 (data showcase).
 
 - Vassilios Karakoidas, Dimitris Mitropoulos, Panos Louridas, Georgios Gousios, Diomidis Spinellis, _Generating the Blueprints of the Java Ecosystem_, in MSR '15: Proceedings of the 2015 International Working Conference on Mining Software Repositories, 2015.
+
+Directory Structure
+============
+
