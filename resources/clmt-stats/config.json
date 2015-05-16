@@ -1,0 +1,5 @@
+{
+    "plugins" : [],
+    "data_directories" : ["."],
+    "dburl": "mysql+mysqldb://root@localhost/invariants"
+}
